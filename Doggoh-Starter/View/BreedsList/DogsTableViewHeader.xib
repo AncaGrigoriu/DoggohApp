@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Bold.ttf">
+            <string>Montserrat-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="26Q-aa-LV5" customClass="DogsTableViewHeader" customModule="Doggoh_Starter" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="16A-4N-dlF">
+                    <rect key="frame" x="0.0" y="-3" width="414" height="56"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R23-Dh-mb1">
+                            <rect key="frame" x="90" y="19.5" width="38.5" height="17.5"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="R23-Dh-mb1" firstAttribute="centerY" secondItem="16A-4N-dlF" secondAttribute="centerY" id="9Ul-FC-X9c"/>
+                        <constraint firstItem="R23-Dh-mb1" firstAttribute="leading" secondItem="16A-4N-dlF" secondAttribute="leading" constant="90" id="UDo-1R-bud"/>
+                        <constraint firstAttribute="height" constant="56" id="smS-Nb-CNW"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="GTh-YB-Eox" firstAttribute="trailing" secondItem="16A-4N-dlF" secondAttribute="trailing" id="1Tk-eT-YD9"/>
+                <constraint firstItem="16A-4N-dlF" firstAttribute="centerY" secondItem="26Q-aa-LV5" secondAttribute="centerY" id="BRP-yC-mLV"/>
+                <constraint firstItem="16A-4N-dlF" firstAttribute="leading" secondItem="GTh-YB-Eox" secondAttribute="leading" id="X2E-Ze-iek"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="GTh-YB-Eox"/>
+            <connections>
+                <outlet property="headerTextLabel" destination="R23-Dh-mb1" id="ap5-Mx-f6o"/>
+            </connections>
+            <point key="canvasLocation" x="57.971014492753625" y="-88.392857142857139"/>
+        </view>
+    </objects>
+</document>

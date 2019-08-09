@@ -1,0 +1,404 @@
+{
+   "questions":[
+   {
+      "question":"This huge but amiable Canadian breed is used for water rescue.",
+      "options":[
+         "Great Pyrenees",
+         "Kuvasz",
+         "Standard Schnauzer",
+         "Newfoundland"
+      ],
+      "answer":"d"
+   },
+   {
+      "question":"This was once one of the rarest breeds in the world. In olden days, it helped deliver messages between boats and hauled in fishing gear.",
+      "options":[
+         "Newfoundland",
+         "Portuguese Water Dog",
+         "Komondor",
+         "Samoyed"
+      ],
+      "answer":"b"
+   },
+   {
+      "question":"Under AKC breed standards, in which of the following dogs is blue eyes an acceptable color?",
+      "options":[
+         "Alaskan Malamute",
+         "Siberian Husky",
+         "Both",
+         "Neither"
+      ],
+      "answer":"b"
+   },
+   {
+      "question":"This big and beautiful dog, originally a cattle drover, is tricolor- brown, white and black.",
+      "options":[
+         "Rottweiler",
+         "Bernese Mountain Dog",
+         "Great Dane",
+         "Standard Schnauzer"
+      ],
+      "answer":"b"
+   },
+   {
+      "question":"This breed originated in Germany and was originally used for bull baiting.",
+      "options":[
+         "Rottweiler",
+         "Bullmastiff",
+         "Standard Schnauzer",
+         "Boxer"
+      ],
+      "answer":"d"
+   },
+   {
+      "question":"This dog is officially classified as a Japanese national treasure.",
+      "options":[
+         "Kuvasz",
+         "Mastiff",
+         "Akita",
+         "Samoyed"
+      ],
+      "answer":"c"
+   },
+   {
+      "question":"This breed was created as a protection dog by a German tax collector.",
+      "options":[
+         "Doberman pinscher",
+         "Rottweiler",
+         "Anatolian shepherd",
+         "Saint Bernard"
+      ],
+      "answer":"a"
+   },
+   {
+      "question":"This dog may have once been a cattle driver in Roman times. In Germany, it herded and guarded cattle on their way to market, then protected the master's money on the way home.",
+      "options":[
+         "Kuvasz",
+         "Doberman pinscher",
+         "Rottweiler",
+         "Standard schnauzer"
+      ],
+      "answer":"c"
+   },
+   {
+      "question":"This breed, known for rescue work, was originally bred in Trappist monasteries.",
+      "options":[
+         "Alaskan malamute",
+         "Great Pyrenees",
+         "Siberian husky",
+         "Saint Bernard"
+      ],
+      "answer":"d"
+   },
+   {
+      "question":"This giant breed comes in many colors, including the black-and-white Harlequin variety.",
+      "options":[
+         "Bernese Mountain Dog",
+         "Mastiff",
+         "Siberian Husky",
+         "Great Dane"
+      ],
+      "answer":"d"
+   },
+   {
+      "question":"This breed is small, about 10-15 inches (25-38 cm). To be this breed it should be 50% white colored, with black/brown spots in areas. Bred for fox hunting originally, that energy level is very prevalent in the breed today, in addition to its chest size which is narrow to fit in foxholes. Examples in pop culture are Moose who played Eddie Crane, Martin Crane's dog on the television show \"Frasier\", and Soccer the dog who played Wishbone on PBS. What breed is this?",
+      "options":[
+         "Affenpinscher (Monkey Terrier)",
+         "Borzoi (Russian Wolfhound)",
+         "Andalusian Hound",
+         "Jack Russell Terrier"
+      ],
+      "answer":"d"
+   },
+   {
+      "question":"This breed has some size to it - about 2 feet (60 cm). They have heavy coats in the combination of tan and black, although other colorings are evident at times. Generally happy and playful and known for being extremely intelligent, the breed is the most popular dog in police K-9 units. Examples in pop culture are one of the first celebrity dogs, Rin Tin Tin, and the elusive dog on the 1970s Saturday morning program, \"Run, Joe, Run\". What breed is this?",
+      "options":[
+         "Samoyed",
+         "Pekingese (Lion Dog)",
+         "Vizsla",
+         "German Shepherd (Alsatian)"
+      ],
+      "answer":"d"
+   },
+   {
+      "question":"This breed is typically sable (medium to dark tan) and white, with hints of black. The coat is heavy, and stays heavy around the neck area. The snout is very long. The breed was bred to herd, but is usually a very friendly breed around even young people. They stand about two feet (60 cm) tall. A line of this breed has played the dog known as Lassie for over two decades starting in the 1940s. What breed is this?",
+      "options":[
+         "Japanese Terrier (Nippon Terrier)",
+         "Rough Collie",
+         "Keeshond",
+         "Dachshund (Sausage Dog)"
+      ],
+      "answer":"b"
+   },
+   {
+      "question":"This breed, if human, would be perfect for playing Rugby. Breed requirements have them at least 100-110 pounds (45-50 kg), and they seem to be all muscle. They are entirely reddish tan. Their incredibly large heads and faces feature wrinkly skin and droopy jowls. Beasley, the celebrity of this breed, had a marquee role in the movie \"Turner and Hooch\". What breed is this?",
+      "options":[
+         "Papillon (Continental Toy Spaniel)",
+         "Dogue de Bordeaux (French Mastiff)",
+         "Norwegian Elkhound",
+         "Weimaraner"
+      ],
+      "answer":"b"
+   },
+   {
+      "question":"This breed is typically red and white, and VERY large, standing close to three feet (91 cm) in cases and weighing often over 200 pounds (91 kg). While their size often requires some special training for the dog, the general temperament is very subdued and friendly. Examples in pop culture are in the movies \"Beethoven\" and \"Cujo\", where both dogs were played by multiple dogs due to the fact that they grow so fast. What breed is this?",
+      "options":[
+         "St. Bernard",
+         "Gordon Setter",
+         "Shih Tzu (Chrysanthemum Dog)",
+         "Wire Fox Terrier"
+      ],
+      "answer":"a"
+   },
+   {
+      "question":"This breed is most identifiable from the egg shape of its head. The top of its head slopes in an arc-like fashion to its nose, and they also feature triangular-shaped eyes. While no real common colors occur in the breed, white and red are frequently seen. The dog stands about twenty inches (51 cm) tall. One of the breed, named Honey Tree Evil Eye, played Budweiser's mascot Spuds McKenzie in the 1980s, and the singer Rick Springfield owned one and put the dog on his first two album covers. What breed is this?",
+      "options":[
+         "Bull Terrier",
+         "Flat Coated Retriever",
+         "East Siberian Laika",
+         "Otterhound"
+      ],
+      "answer":"a"
+   },
+   {
+      "question":"This breed is known primarily known for being small. VERY small. They average only eight inches (20 cm) in height. The breed have \"apple-shaped\" or \"deer-shaped\" heads. One of the oldest breeds, with archaeological evidence dating back to B.C., all colors are accepted in the breed. In the 1990s one breed member named Gidget played the mascot for Taco Bell. Which breed is this?",
+      "options":[
+         "Chihuahua",
+         "Chilean Fox Terrier",
+         "Chamuco",
+         "Chinese Imperial Dog"
+      ],
+      "answer":"a"
+   },
+   {
+      "question":"This breed comes in varieties of sandy grey, and is groomed to have a rough wire coat. The breed stands nine to thirteen inches (23-33 cm) tall. They were bred to hunt rats in the Scottish Highlands. The most famous dog of this breed was one named Terry, who acted with Shirley Temple in \"Bright Eyes\", which led to the Holy Grail of dog roles, Toto in \"The Wizard of Oz\". Which breed is this?",
+      "options":[
+         "Cairn Terrier",
+         "Rhodesian Ridgeback (African Lion Hound)",
+         "Cocker Spaniel",
+         "Mountain Cur"
+      ],
+      "answer":"a"
+   },
+   {
+      "question":"While this breed comes in various colors, it is its physicality that sets it apart. Standing at 12-16 inches (31-40 cm), they come in at a stocky 40-55 pounds (18-25 kg). The breed has short hair and have a prominent underbite, and they feature a wrinkly face with a large fold (sometimes called a \"rope\") across the bridge of the nose. An example in pop culture is found on the football fields of the University of Georgia, where a series of the breed, named Uga, have stood as mascot for the home games. What breed is this?",
+      "options":[
+         "Bulldog",
+         "Dalmatian",
+         "Cavalier King Charles Spaniel",
+         "English White Terrier (Old English Terrier)"
+      ],
+      "answer":"a"
+   },
+   {
+      "question":"This breed is a light tan with a black face. The face is the noticeable feature, being very wrinkly and seemingly pressed in. They are small, high-energy dogs, ranging in height from 10-14 inches (25-36 cm). They also are susceptible to breathing problems due to the smashed in quality of their face. Prominent appearances in pop culture are when Mushu played Frank in the Men in Black series of movies, and a few of the breed played Otis in \"The Adventures of Milo and Otis\". What breed is this?",
+      "options":[
+         "Pomeranian",
+         "English Terrier",
+         "German Pinscher",
+         "Pug"
+      ],
+      "answer":"d"
+   },
+   {
+      "question":"Woof woof! I'm a terrier from England. There are loads of different types of terrier, so to help you, I'll say I'm a bright, hardy little dog with a rough coat, and you may have seen one of my relatives in the Tintin books, or in 'The Thin Man'. What kind of terrier am I?",
+      "options":[
+         "Lakeland terrier",
+         "Norwich terrier",
+         "Wire fox terrier",
+         "Parson Russell terrier"
+      ],
+      "answer":"c"
+   },
+   {
+      "question":"Dia dhuit! I'm a terrier too, from Ireland, and I'm going to jump on you and lick your face. A shaggy-haired little dog, I'm considered an ideal pet for people with allergies, as I shed far less than other dogs. What sort of terrier am I?",
+      "options":[
+         "Irish terrier",
+         "Glen of Imaal terrier",
+         "Soft-coated wheaten terrier",
+         "Kerry Blue terrier"
+      ],
+      "answer":"c"
+   },
+   {
+      "question":"Whaddya at? I'm from Canada, and I'm an enormous hairy dog with dark fur and webbed feet. My human is a fisherman and I like to help him out on his boat. I might look intimidating at first glance, but don't be fooled - I'm a real gentle giant. I'm named after the province I come from, but which one?",
+      "options":[
+         "Newfoundland",
+         "Ontario",
+         "Nunavut",
+         "Alberta"
+      ],
+      "answer":"a"
+   },
+   {
+      "question":"Yo, dawg, what's up? I'm from the US of A and my job is to chase my prey up trees so my human can catch it. That's why they call me the treeing Walker coonhound, and you'll recognise me by my tan and white colouring long floppy ears. I'm not the only type of coonhound; I've got cousins from five other types of coonhound breed. But can you tell me which of the coonhounds listed below ISN'T an actual breed?",
+      "options":[
+         "Redbone coonhound",
+         "Golden coonhound",
+         "Bluetick coonhound",
+         "Black and tan coonhound"
+      ],
+      "answer":"b"
+   },
+   {
+      "question":"Hola, qué tal? I'm from Mexico, and I'm one rare and unusual-looking dog. Aside from my huge ears, I also have a characteristic that makes me different to other dogs. They call me the Xoloitzcuintli in the Nahuatl language, but what's my name in English?",
+      "options":[
+         "Mexican toy terrier",
+         "Mexican treeing dog",
+         "Mexican mastiff",
+         "Mexican hairless dog"
+      ],
+      "answer":"d"
+   },
+   {
+      "question":"G'day, mate! My human is a stockman living in Australia. Me and my brothers keep his sheep in line. People get tricked, because of my name, into thinking that I was born here. Who am I?",
+      "options":[
+         "Australian Kelpie",
+         "Australian Shepherd",
+         "Border Collie",
+         "Staffordshire Bull Terrier"
+      ],
+      "answer":"b"
+   },
+   {
+      "question":"Om swasiastu! I'm a rare breed of spitz-type dog from Indonesia. The humans call me Kintamani, and I'm the native dog of one of the many islands that make up Indonesia - but which island?",
+      "options":[
+         "Java",
+         "Bali",
+         "Borneo",
+         "Sumatra"
+      ],
+      "answer":"b"
+   },
+   {
+      "question":"Konichiwa! I'm from Japan - more specifically, the Kochi prefecture - and I'm a dog which was originally bred for fighting. I'm a large mastiff-type dog, with strong jaws, but humans don't seem to like me for some reason - I've been banned in various countries. Which breed am I?",
+      "options":[
+         "Shikoku",
+         "Tosa",
+         "Akita",
+         "Kishu"
+      ],
+      "answer":"b"
+   },
+   {
+      "question":"Ni hao! I'm Chinese, and I won't mind if you mistake me for a lion. I might be small, but I can be fierce when I want to be, and proud too - well, you'd be proud yourself if you were favoured by Chinese emperors. In fact, the Empress Dowager Cixi wrote a standard for my kind. Which type of dog am I?",
+      "options":[
+         "Pekingese",
+         "Shih tzu",
+         "Chow chow",
+         "Pug"
+      ],
+      "answer":"a"
+   },
+   {
+      "question":"Tashi delek! Although I'm from Tibet, I'm popular in China too. In my homeland, you'll find me sitting outside Buddhist monasteries and nomad camps. I'm a big dog with a fluffy tail and a deep bark. Don't mess with me - I'm one of the oldest breeds in the world, and I can kill wolves. What kind of dog am I?",
+      "options":[
+         "Tibetan mastiff",
+         "Tibetan terrier",
+         "Tibetan spaniel",
+         "Lhasa apso"
+      ],
+      "answer":"a"
+   },
+   {
+      "question":"Salamatszyby! I'm a sighthound from Kyrgyzstan - you may not have heard of me as I'm quite a rare breed. In fact, there are only a few hundred of us in the world! I'm used to hunt game in the Tian Shan mountains, and they call me the Kyrgyzskaya borzaya in my homeland - but what's my other name?",
+      "options":[
+         "Chortaj",
+         "Taigan",
+         "Tazi",
+         "Kanni"
+      ],
+      "answer":"a"
+   },
+   {
+      "question":"Privet! I'm from Russia, I pull sleds and herd reindeer, and my fluffy white coat keeps me warm. You can't miss me - well, unless we're in the middle of a snowdrift! I'm named for the indigenous people in Siberia who bred me. What am I?",
+      "options":[
+         "Siberian husky",
+         "Bolonka",
+         "Borzoi",
+         "Samoyed"
+      ],
+      "answer":"a"
+   },
+   {
+      "question":"Salaam! You'll find me and my relatives across the Middle East, hunting gazelle, hares and other game. I'm your typical sighthound - like my relative the taigan, mentioned earlier in this quiz, I'm a lean, sleet-footed dog with long feathery ears and a fluffy tail. My nicknames include 'Persian greyhound' and the 'royal dog of Egypt'. What am I?",
+      "options":[
+         "Afgan Hound",
+         "Saluki",
+         "Canaan Dog",
+         "Huntaway"
+      ],
+      "answer":"b"
+   },
+   {
+      "question":"Salibonani! I'm from Rhodesia, or Zimbabwe as it's called now. Humans used to call me the African Lion Hound - yes, I'm a dog bred to hunt lions! I'm reddish in colour and I get my name from one of my most distinctive features. What kind of dog am I?",
+      "options":[
+         "Rhodesian whiptail",
+         "Rhodesian hound",
+         "Rhodesian ridgeback",
+         "Rhodesian red dog"
+      ],
+      "answer":"c"
+   },
+   {
+      "question":"Bonjour! I'm the basenji, from Zaire, now known as the Democratic Republic of the Congo. I'm an ancient breed of hound with a wrinkled forehead and another distinguishing feature that makes me stand out among all the other dogs. What is it?",
+      "options":[
+         "I have six toes on each paw",
+         "Instead of barking, I make a 'yodelling' noise",
+         "I walk on my hind legs, rather than walking on all fours",
+         "I can hunt my prey by detecting the prey's body heat"
+      ],
+      "answer":"b"
+   },
+   {
+      "question":"Merhaba! I'm from Turkey, and although my name makes me sound like a sheepdog, I'm not. If you want a big tough beast to protect your flock, I'm your dog. I'm prepared to take on any predators, even cheetahs, wolves and bears! I have a curly tail and although I come in many colours, I'm usually fawn with a black mask. What am I?",
+      "options":[
+         "Anatolian shepherd dog",
+         "Thracian sheepdog",
+         "Turkish herder",
+         "Bosporus shepherd dog"
+      ],
+      "answer":"a"
+   },
+   {
+      "question":"Dobar dan! I'm from Croatia, and I'm a spotted dog. I'm a dog of all trades - I can hunt, I can catch vermin, and I used to run alongside carriages. You may have seen 101 of my relatives in a certain Disney movie, based on a Dodie Smith novel. I need no further introduction. What am I?",
+      "options":[
+         "Tornjak",
+         "Dalmatian",
+         "Sarplaninac",
+         "Posavac hound"
+      ],
+      "answer":"b"
+   },
+   {
+      "question":"Ciao! I'm an ancient breed from Italy with a tightly curled coat, which comes in handy for keeping me warm when I'm retrieving water fowl! I don't just hunt game, though - I'm also used to sniff out truffles. What am I?",
+      "options":[
+         "Dogo sardesco",
+         "Cane corso",
+         "Lagotto Romagnolo",
+         "Segugio Italiano"
+      ],
+      "answer":"c"
+   },
+   {
+      "question":"Grüezi! I'm a tricoloured dog from Switzerland, and I'm from the sennenhund family, also known as 'mountain dogs'. There are four of us: the Bernese, the Entlebucher, the Appenzeller, and the greater Swiss. We're cattle dogs and we all have similar coats, but are different sizes. I'm the smallest. Which one am I?",
+      "options":[
+         "Entlebucher mountain dog",
+         "Greater Swiss mountain dog",
+         "Appenzeller mountain dog",
+         "Bernese mountain dog"
+      ],
+      "answer":"a"
+   },
+   {
+      "question":"Guten Tag, meine Damen und Herren! I'm a big dog from Germany, and I need no introduction. You've probably seen me working with police and in airports, appearing on TV, or just playing with my humans. I'm very clever and I have a strong bite, and I'm not a dog for the inexperienced owner. What am I?",
+      "options":[
+         "German shepherd dog",
+         "Weimaraner",
+         "Rottweiler",
+         "Dachshund"
+      ],
+      "answer":"a"
+   }
+]
+}

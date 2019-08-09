@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CharacterCollectionViewCell" id="gTV-IL-0wX" customClass="CharacterCollectionViewCell" customModule="Doggoh_Starter" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="205" height="99"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="205" height="99"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qp0-Jz-qlR">
+                        <rect key="frame" x="0.0" y="44" width="205" height="21"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVg-11-UGL">
+                                <rect key="frame" x="83.5" y="2" width="38.5" height="17.5"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tVg-11-UGL" firstAttribute="centerX" secondItem="Qp0-Jz-qlR" secondAttribute="centerX" id="9dV-XU-WAf"/>
+                            <constraint firstItem="tVg-11-UGL" firstAttribute="centerY" secondItem="Qp0-Jz-qlR" secondAttribute="centerY" id="sZ5-Mq-Sfj"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Qp0-Jz-qlR" firstAttribute="trailing" secondItem="ZTg-uK-7eu" secondAttribute="trailing" id="0rj-OR-J6c"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="Qp0-Jz-qlR" secondAttribute="top" id="V7J-1Y-Utx"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="leading" secondItem="Qp0-Jz-qlR" secondAttribute="leading" id="bPe-Yf-1Cs"/>
+                <constraint firstItem="Qp0-Jz-qlR" firstAttribute="bottom" secondItem="ZTg-uK-7eu" secondAttribute="bottom" id="sta-As-uTK"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="205" height="99"/>
+            <connections>
+                <outlet property="cellBackgroundView" destination="Qp0-Jz-qlR" id="Gg1-j4-owE"/>
+                <outlet property="characteristicLabel" destination="tVg-11-UGL" id="DkH-mS-epv"/>
+            </connections>
+            <point key="canvasLocation" x="158.69565217391306" y="49.21875"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubBreedTableViewCell" rowHeight="92" id="KGk-i7-Jjw" customClass="SubBreedTableViewCell" customModule="Doggoh_Starter" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="92"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="350" height="91.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F4T-tk-oKO">
+                        <rect key="frame" x="35" y="26" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="9fS-gN-5YV"/>
+                            <constraint firstAttribute="width" constant="40" id="FtN-DA-dJ2"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SH8-U0-bBs">
+                        <rect key="frame" x="90" y="37" width="225" height="17.5"/>
+                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="F4T-tk-oKO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="35" id="2sa-1h-6BO"/>
+                    <constraint firstItem="F4T-tk-oKO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9js-1Z-4Si"/>
+                    <constraint firstAttribute="trailing" secondItem="SH8-U0-bBs" secondAttribute="trailing" constant="35" id="TI7-JI-50g"/>
+                    <constraint firstItem="SH8-U0-bBs" firstAttribute="leading" secondItem="F4T-tk-oKO" secondAttribute="trailing" constant="15" id="bcM-Bs-pWz"/>
+                    <constraint firstItem="SH8-U0-bBs" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qKF-cL-TpL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="breedImageView" destination="F4T-tk-oKO" id="Q9r-mU-Qjf"/>
+                <outlet property="breedLabel" destination="SH8-U0-bBs" id="b0g-51-SMG"/>
+            </connections>
+            <point key="canvasLocation" x="153.62318840579712" y="115.17857142857142"/>
+        </tableViewCell>
+    </objects>
+</document>
