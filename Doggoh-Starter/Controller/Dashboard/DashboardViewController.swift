@@ -49,13 +49,6 @@ class DashboardViewController: UIViewController {
         gradient.colors = [UIColor(red: 1, green: 1, blue: 1, alpha: 0.84).cgColor, UIColor(red: 1, green: 1, blue: 1, alpha: 0).cgColor]
         
         gradientView.layer.insertSublayer(gradient, at: 0)
-        
-//        let gradient = CAGradientLayer()
-//        gradient.colors = [UIColor(red: 1, green: 1, blue: 1, alpha: 0.84).cgColor, UIColor(red: 1, green: 1, blue: 1, alpha: 0).cgColor]
-//        gradient.locations =  [0.0, 1.0]
-//        gradient.frame = gradientView.bounds
-//
-//        gradientView.layer.insertSublayer(gradient, at: 0)
     }
 
     
@@ -84,16 +77,6 @@ extension DashboardViewController: PinterestLayoutDelegate {
 }
 
 extension DashboardViewController: UICollectionViewDelegateFlowLayout {
-    
-    //Nu mai avem nevoie de aceasta metoda pentru ca deja calculam Size-ul pentru fiecare item in flow layout
-    
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    //
-    //        let width = (collectionView.frame.size.width - defaultSpace - collectionView.contentInset.left - collectionView.contentInset.right) / numberOfColumns
-    //        let height: CGFloat = 200
-    //
-    //        return CGSize(width: width, height: height)
-    //    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return defaultSpace

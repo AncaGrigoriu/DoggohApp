@@ -57,24 +57,20 @@ extension BreedsTableViewController {
                 generalBreeds.append(generalBreed.uppercased())
                 
                 specificBreeds.forEach { breedName in
-                    if imageIndex == 23 {
-                        imageIndex = 0
-                    }
                     let image = UIImage(named: String(imageIndex)) ?? UIImage()
                     allBreeds.append(Breed(generalBreedName: generalBreed.uppercased(), specificBreedName: breedName.capitalized, photo: image))
-                    imageIndex += 1
+                    imageIndex = imageIndex == 22 ? 0 : imageIndex + 1
                 }
                 
                 if specificBreeds.count == 0 {
-                    if imageIndex == 23 {
-                        imageIndex = 0
-                    }
                     let image = UIImage(named: String(imageIndex)) ?? UIImage()
                     allBreeds.append(Breed(generalBreedName: generalBreed.uppercased(), specificBreedName: generalBreed.uppercased(), photo: image))
-                    imageIndex += 1
+                    imageIndex = imageIndex == 22 ? 0 : imageIndex + 1
                 }
             }
         }
+        
+        generalBreeds = generalBreeds.sorted()
     }
     
     func groupDogs() {

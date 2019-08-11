@@ -19,6 +19,7 @@ struct DogProfileCharacterConstants {
 }
 
 class DogProfileCharacterLayout: UICollectionViewFlowLayout {
+    
     weak var delegate: DogProfileCharacterDelegate!
     
     private var cache = [UICollectionViewLayoutAttributes]()
@@ -45,7 +46,7 @@ class DogProfileCharacterLayout: UICollectionViewFlowLayout {
         let rowHeight = contentHeight / CGFloat(DogProfileCharacterConstants.numberOfRows)
         
         var yOffset = [CGFloat]()
-        for row in 0 ..< DogProfileCharacterConstants.numberOfRows {
+        for row in 0..<DogProfileCharacterConstants.numberOfRows {
             yOffset.append(CGFloat(row) * rowHeight)
         }
         

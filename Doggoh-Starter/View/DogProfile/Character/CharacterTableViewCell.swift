@@ -12,10 +12,9 @@ class CharacterTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var characteristics = ["QUIET", "PLAYFUL", "PEACEFUL", "CHERRFUL", "LOUD",                           "FRIENDLY", "ACTIVE", "CURIOUS", "AFFECTIONATE",
-                           "TRAINED", "INTELLIGENT", "SENSITIVE", "SOCIABLE"]
+    var characteristics = ["QUIET", "PLAYFUL", "PEACEFUL", "CHERRFUL", "LOUD", "FRIENDLY", "ACTIVE", "CURIOUS", "AFFECTIONATE", "TRAINED", "INTELLIGENT", "SENSITIVE", "SOCIABLE"]
     
-    let lateralMargin: CGFloat = 27
+    let lateralMargin: CGFloat = 35 - DogProfileCharacterConstants.xCellPadding
     let verticalMarginTop: CGFloat = 0
     let verticalMarginBottom: CGFloat = 16
     
@@ -30,7 +29,6 @@ class CharacterTableViewCell: UITableViewCell {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        
         collectionView.allowsMultipleSelection = true
         
         collectionView.contentInset = UIEdgeInsets(top: verticalMarginTop, left: lateralMargin, bottom: verticalMarginBottom, right: lateralMargin)

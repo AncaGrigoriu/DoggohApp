@@ -56,13 +56,13 @@ class DogPictureTableViewCell: UITableViewCell {
     private func configureInputAccesoryView() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        let saveBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(saveButtonClicked))
+        let saveBarButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonClicked))
         
         let cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonClicked))
         
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
-        toolbar.setItems([saveBarButton, flexibleSpace, cancelBarButton], animated: true)
+        toolbar.setItems([cancelBarButton, flexibleSpace, saveBarButton], animated: true)
         
         dogBreedTextField.inputAccessoryView = toolbar
     }

@@ -64,6 +64,4 @@ extension QuizViewController: UITabBarControllerDelegate {
             return
         }
     }
-    
-    
 }

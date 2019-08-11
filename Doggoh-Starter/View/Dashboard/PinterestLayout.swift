@@ -30,7 +30,6 @@ class PinterestLayout: UICollectionViewFlowLayout {
         }
         let insets = collectionView.contentInset
         return collectionView.bounds.width - (insets.left + insets.right)
-        //        return collectionView.bounds.width
     }
     
     override var collectionViewContentSize: CGSize {
