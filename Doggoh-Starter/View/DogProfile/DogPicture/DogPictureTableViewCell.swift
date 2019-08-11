@@ -8,18 +8,28 @@
 
 import UIKit
 
+protocol DogPictureTableViewCellDelegate: class {
+    func keyboardWillShow(notification: NSNotification, currentTextField: UITextField)
+    func keyboardWillHide(notification: NSNotification)
+}
+
 @IBDesignable
 class DogPictureTableViewCell: UITableViewCell {
-
+    
+    var activeTextField: UITextField!
+    
     let breeds: [String] = getBreeds()
-    var breed: String!
+    var breedIndex: Int = 0
+    var picker: UIPickerView!
+    
+    weak var delegate: DogPictureTableViewCellDelegate?
     
     @IBOutlet weak var dogBreedTextField: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        breed = breeds[0]
+        activeTextField = nil
         configureTextField()
     }
     
@@ -28,11 +38,15 @@ class DogPictureTableViewCell: UITableViewCell {
         let rightViewImageView = UIImageView(image: rightViewImage)
         dogBreedTextField.rightView = rightViewImageView
         dogBreedTextField.rightViewMode = .always
-        dogBreedTextField.text = breed
+        dogBreedTextField.text = breeds[breedIndex]
+        
+        configureInputView()
+        configureInputAccesoryView()
+        addInputNotifications()
     }
     
     private func configureInputView() {
-        let picker = UIPickerView()
+        picker = UIPickerView()
         picker.delegate = self
         picker.dataSource = self
         
@@ -50,16 +64,44 @@ class DogPictureTableViewCell: UITableViewCell {
         
         toolbar.setItems([saveBarButton, flexibleSpace, cancelBarButton], animated: true)
         
-        dueDateTextField.inputAccessoryView = toolbar
+        dogBreedTextField.inputAccessoryView = toolbar
     }
     
     @objc func saveButtonClicked() {
-        
+        breedIndex = picker.selectedRow(inComponent: 0)
+        dogBreedTextField.resignFirstResponder()
     }
     
     @objc func cancelButtonClicked() {
-        
+        dogBreedTextField.text = breeds[breedIndex]
+        dogBreedTextField.resignFirstResponder()
     }
+    
+    private func addInputNotifications() {
+        NotificationCenter.default
+            .addObserver(self,
+                         selector: #selector(keyboardWillShow(notification:)),
+                         name: UIResponder.keyboardWillShowNotification,
+                         object: nil)
+        
+        NotificationCenter.default
+            .addObserver(self,
+                         selector: #selector(keyboardWillHide(notification:)),
+                         name: UIResponder.keyboardWillHideNotification,
+                         object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        picker.selectRow(breedIndex, inComponent: 0, animated: false)
+        dogBreedTextField.alpha = 0.5
+        delegate?.keyboardWillShow(notification: notification, currentTextField: dogBreedTextField)
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        dogBreedTextField.alpha = 1.0
+        delegate?.keyboardWillHide(notification: notification)
+    }
+    
     private static func getBreeds() -> [String] {
         var result = [String]()
         if let data = BreedsRepository.dataFromJSON(withName: BreedsRepository.filename),
@@ -74,13 +116,17 @@ class DogPictureTableViewCell: UITableViewCell {
                 }
             }
         }
-        return result
+        return result.sorted()
     }
 }
 
 extension DogPictureTableViewCell: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         dogBreedTextField.text = breeds[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return breeds[row]
     }
 }
 
@@ -92,6 +138,4 @@ extension DogPictureTableViewCell: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return breeds.count
     }
-    
-    
 }
