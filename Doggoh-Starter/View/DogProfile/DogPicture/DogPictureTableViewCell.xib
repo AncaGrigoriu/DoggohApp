@@ -65,38 +65,28 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Za0-aw-j0Z">
                                                 <rect key="frame" x="0.0" y="53.5" width="227" height="48"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJw-fB-orV">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="American Alaskan Mal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dYf-Lo-8oy">
                                                         <rect key="frame" x="20" y="0.0" width="187" height="48"/>
-                                                        <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="American Alaskan Mal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dYf-Lo-8oy">
-                                                                <rect key="frame" x="0.0" y="0.0" width="173" height="48"/>
-                                                                <color key="backgroundColor" name="dogProfileOrange"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                        <integer key="value" value="10"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </textField>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="path" translatesAutoresizingMaskIntoConstraints="NO" id="RMS-Xk-8U4">
-                                                                <rect key="frame" x="173" y="0.0" width="14" height="48"/>
-                                                            </imageView>
-                                                        </subviews>
                                                         <color key="backgroundColor" name="dogProfileOrange"/>
-                                                        <color key="tintColor" name="dogProfileOrange"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="48" id="lEU-zT-TGq"/>
+                                                            <constraint firstAttribute="height" constant="48" id="FWi-OY-POc"/>
                                                         </constraints>
-                                                    </stackView>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" name="dogProfileOrange"/>
                                                 <constraints>
-                                                    <constraint firstItem="yJw-fB-orV" firstAttribute="top" secondItem="Za0-aw-j0Z" secondAttribute="top" id="Yoy-FV-Vex"/>
-                                                    <constraint firstAttribute="bottom" secondItem="yJw-fB-orV" secondAttribute="bottom" id="kf7-48-qCl"/>
-                                                    <constraint firstItem="yJw-fB-orV" firstAttribute="leading" secondItem="Za0-aw-j0Z" secondAttribute="leading" constant="20" id="m8o-bN-g6f"/>
-                                                    <constraint firstAttribute="trailing" secondItem="yJw-fB-orV" secondAttribute="trailing" constant="20" id="vaX-lK-ohT"/>
+                                                    <constraint firstAttribute="bottom" secondItem="dYf-Lo-8oy" secondAttribute="bottom" id="IHr-Fv-dh9"/>
+                                                    <constraint firstItem="dYf-Lo-8oy" firstAttribute="leading" secondItem="Za0-aw-j0Z" secondAttribute="leading" constant="20" id="TdG-SI-8fR"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dYf-Lo-8oy" secondAttribute="trailing" constant="20" id="rDo-EE-lA1"/>
+                                                    <constraint firstItem="dYf-Lo-8oy" firstAttribute="top" secondItem="Za0-aw-j0Z" secondAttribute="top" id="rGi-ZZ-xSj"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -148,13 +138,15 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dogBreedTextField" destination="dYf-Lo-8oy" id="FJx-0N-Ood"/>
+            </connections>
             <point key="canvasLocation" x="97.826086956521749" y="235.71428571428569"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="dog" width="1000" height="1000"/>
         <image name="edit" width="512" height="512"/>
-        <image name="path" width="14" height="8"/>
         <namedColor name="backButtonColor">
             <color red="0.80784313725490198" green="0.81568627450980391" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
