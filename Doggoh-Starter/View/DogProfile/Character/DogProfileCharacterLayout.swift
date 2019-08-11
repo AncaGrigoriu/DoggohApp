@@ -12,12 +12,14 @@ protocol DogProfileCharacterDelegate: class {
     func collectionView(_ collectionView:UICollectionView, widthForItemAtIndexPath indexPath:IndexPath) -> CGFloat
 }
 
+struct DogProfileCharacterConstants {
+    public static let numberOfRows = 3
+    public static let xCellPadding: CGFloat = 8
+    public static let yCellPadding: CGFloat = 8
+}
+
 class DogProfileCharacterLayout: UICollectionViewFlowLayout {
     weak var delegate: DogProfileCharacterDelegate!
-    
-    private var numberOfRows = 3
-    private var xCellPadding: CGFloat = 8
-    private var yCellPadding:CGFloat = 8
     
     private var cache = [UICollectionViewLayoutAttributes]()
     
@@ -40,25 +42,25 @@ class DogProfileCharacterLayout: UICollectionViewFlowLayout {
             return
         }
         
-        let rowHeight = contentHeight / CGFloat(numberOfRows)
+        let rowHeight = contentHeight / CGFloat(DogProfileCharacterConstants.numberOfRows)
         
         var yOffset = [CGFloat]()
-        for row in 0 ..< numberOfRows {
+        for row in 0 ..< DogProfileCharacterConstants.numberOfRows {
             yOffset.append(CGFloat(row) * rowHeight)
         }
         
         var row = 0
-        var xOffset = [CGFloat](repeating: 0, count: numberOfRows)
+        var xOffset = [CGFloat](repeating: 0, count: DogProfileCharacterConstants.numberOfRows)
         
         for item in 0 ..< collectionView.numberOfItems(inSection: 0) {
             
             let indexPath = IndexPath(item: item, section: 0)
             
             let labelWidth = delegate.collectionView(collectionView, widthForItemAtIndexPath: indexPath)
-            let width = xCellPadding * 4.0 + labelWidth
+            let width = DogProfileCharacterConstants.xCellPadding * 2.0 + labelWidth
             let frame = CGRect(x: xOffset[row], y: yOffset[row], width: width, height: rowHeight)
             
-            let insetFrame = frame.insetBy(dx: xCellPadding, dy: yCellPadding)
+            let insetFrame = frame.insetBy(dx: DogProfileCharacterConstants.xCellPadding, dy: DogProfileCharacterConstants.yCellPadding)
             
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             attributes.frame = insetFrame
@@ -67,7 +69,7 @@ class DogProfileCharacterLayout: UICollectionViewFlowLayout {
             contentWidth = max(contentWidth, frame.maxX)
             xOffset[row] = xOffset[row] + width
             
-            row = row < (numberOfRows - 1) ? (row + 1) : 0
+            row = row < (DogProfileCharacterConstants.numberOfRows - 1) ? (row + 1) : 0
         }
     }
     

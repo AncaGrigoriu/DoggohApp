@@ -77,14 +77,25 @@ extension CharacterTableViewCell: DogProfileCharacterDelegate {
         let rect = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
         let labelSize = labelText.boundingRect(with: rect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         
-        return ceil(labelSize.width)
+        return ceil(labelSize.width) + 4 * DogProfileCharacterConstants.xCellPadding
     }
 }
 
 extension CharacterTableViewCell: UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return selectedItems.count < 3
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let characteristic = characteristics[indexPath.row]
         selectedItems.append(characteristic)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let characteristic = characteristics[indexPath.row]
+        if let index = selectedItems.firstIndex(of: characteristic) {
+            selectedItems.remove(at: index)
+        }
     }
 }
