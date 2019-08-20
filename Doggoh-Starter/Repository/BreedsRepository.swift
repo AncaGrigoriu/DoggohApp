@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 struct BreedsRepository {
     static let filename = "alldogsresponse"
+    static let apiClient = DogAPIClient.sharedInstance
     
     static func dataFromJSON(withName name: String) -> Dictionary<String, AnyObject>? {
         
@@ -30,5 +32,35 @@ struct BreedsRepository {
         }
         
         return nil
+    }
+    
+    static func getDogs(_ completion: @escaping (Result<([Breed]), NetworkError>) -> Void) {
+        apiClient.getAllDogs { result in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let dogsResponse):
+                var breeds = [Breed]()
+                dogsResponse.forEach{ dogResponse in
+                    breeds.append(contentsOf: getBreeds(dogResponse: dogResponse))
+                }
+                completion(.success(breeds))
+            }
+        }
+    }
+    
+    private static func getBreeds(dogResponse: DogResponse) -> [Breed] {
+        var breeds = [Breed]()
+        let generalBreed = dogResponse.breed
+        
+        dogResponse.subbreeds.forEach { breedName in
+            breeds.append(Breed(generalBreedName: generalBreed.uppercased(), specificBreedName: breedName.capitalized, photo: UIImage()))
+        }
+        
+        if dogResponse.subbreeds.count == 0 {
+            breeds.append(Breed(generalBreedName: generalBreed.uppercased(), specificBreedName: generalBreed.uppercased(), photo: UIImage()))
+        }
+        
+        return breeds
     }
 }
