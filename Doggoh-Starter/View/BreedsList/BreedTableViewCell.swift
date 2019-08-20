@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BreedTableViewCell: UITableViewCell {
+class BreedTableViewCell: UITableViewCell, CellConfigurable {
 
     @IBOutlet weak var breedImageView: UIImageView!
     
