@@ -81,25 +81,26 @@ extension BreedsTableViewController {
     }
     
     func getBreedImage(forIndexPath indexPath: IndexPath, cell: CellConfigurable) {
-        print("Retrieving image for indexPath \(indexPath)")
         let generalBreed = generalBreeds[indexPath.section]
         var breed = groupedBreeds[generalBreed]![indexPath.row]
         DogImagesRepository.getRandomImage(forBreed: generalBreed.lowercased()) { result in
             switch result {
             case .success(let imageUrl):
-                print("Success for indexPath \(indexPath)")
-                do {
-                    let data = try Data(contentsOf: URL(string: imageUrl)!)
-                    let image = UIImage(data: data)!
-                    self.images[indexPath] = image
-                    DispatchQueue.main.async {
-                        breed.photo = image
-                        self.groupedBreeds[generalBreed]![indexPath.row] = breed
-                        cell.config(with: breed)
+                DispatchQueue.global(qos: .background).async {
+                    do {
+                        let data = try Data(contentsOf: URL(string: imageUrl)!)
+                        let image = UIImage(data: data)!
+                        
+                        DispatchQueue.main.async {
+                            self.images[indexPath] = image
+                            breed.photo = image
+                            self.groupedBreeds[generalBreed]![indexPath.row] = breed
+                            cell.config(with: breed)
+                        }
                     }
-                }
-                catch let error {
-                    print("error: \(error)")
+                    catch let error {
+                        print("error: \(error)")
+                    }
                 }
             case .failure(let error):
                 print(error)
@@ -108,8 +109,7 @@ extension BreedsTableViewController {
     }
     
     func indexPathImage(for indexPath: IndexPath, cell: CellConfigurable) {
-        guard let image = images[indexPath] else {
-            print("Index path \(indexPath) has no image")
+        guard images[indexPath] != nil else {
             images[indexPath] = UIImage()
             getBreedImage(forIndexPath: indexPath, cell: cell)
             return
@@ -159,7 +159,6 @@ extension BreedsTableViewController {
         let dogsOfBreed = groupedBreeds[breed]!
         
         let sectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: Constants.headerIdentifier) as! DogsTableViewHeader
-        sectionHeader.backgroundColor = UIColor.white
         
         if dogsOfBreed.count > 1 || dogsOfBreed[0].specificBreedName != breed {
             sectionHeader.headerTextLabel.text = breed
@@ -184,15 +183,41 @@ extension BreedsTableViewController {
         return 0
     }
     
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == generalBreeds.count - 1 {
+            return 0
+        }
+        
+        let sectionFooter = tableView.dequeueReusableHeaderFooterView(withIdentifier: Constants.footerIdentifier) as! DogsTableViewFooter
+        return sectionFooter.frame.height
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let generalBreed = generalBreeds[indexPath.section]
+        
+        if let image = images[indexPath] {
+            DogImagesRepository.checkBreedMatch(with: image) { response in
+                switch response {
+                case .failure(let error):
+                    print("error: \(error)")
+                case .success(let result):
+                    print(result)
+                    if result.contains(generalBreed.lowercased()) {
+                        print("Photo matches breed")
+                    } else {
+                        print("Photo does not match breed")
+                    }
+                }
+            }
+        }
+        
         if let subBreeds = groupedBreeds[generalBreed] {
             let breed = subBreeds[indexPath.row]
             let breedDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "BreedDetailsViewController") as! BreedDetailsViewController
-            if breed.generalBreedName == breed.specificBreedName {
-                breedDetailsViewController.breedName = breed.specificBreedName
-            } else {
-                breedDetailsViewController.breedName = "\(breed.specificBreedName) \(breed.generalBreedName)"
+            
+            breedDetailsViewController.breedName = breed.generalBreedName
+            if breed.generalBreedName != breed.specificBreedName {
+                breedDetailsViewController.subBreedName = breed.specificBreedName
             }
             
             self.navigationController!.pushViewController(breedDetailsViewController, animated: true)

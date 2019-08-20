@@ -11,7 +11,8 @@ import UIKit
 
 struct BreedsRepository {
     static let filename = "alldogsresponse"
-    static let apiClient = DogAPIClient.sharedInstance
+//    static let apiClient = DogAPIClient.sharedInstance
+    static let apiClient = DoggohAPIClient.sharedInstance
     
     static func dataFromJSON(withName name: String) -> Dictionary<String, AnyObject>? {
         

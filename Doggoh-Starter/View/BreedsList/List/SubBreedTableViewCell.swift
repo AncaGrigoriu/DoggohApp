@@ -1,5 +1,5 @@
 //
-//  DogSectionTableViewCell.swift
+//  DogTableViewCell.swift
 //  Doggoh-Starter
 //
 //  Created by Anca Grigoriu on 07/08/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BreedTableViewCell: UITableViewCell, CellConfigurable {
+class SubBreedTableViewCell: UITableViewCell, CellConfigurable {
 
     @IBOutlet weak var breedImageView: UIImageView!
     
@@ -17,5 +17,7 @@ class BreedTableViewCell: UITableViewCell, CellConfigurable {
     func config(with dog: Breed) {
         breedImageView.image = dog.photo
         breedLabel.text = dog.specificBreedName
+        breedImageView.layer.cornerRadius = breedImageView.bounds.height / 2
     }
+    
 }

@@ -43,7 +43,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DOGGOH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlH-sv-WQS">
-                                        <rect key="frame" x="145" y="35" width="85.5" height="25"/>
+                                        <rect key="frame" x="145" y="10" width="85.5" height="25"/>
                                         <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="8ka-bt-5Lq"/>
                                     <constraint firstItem="HlH-sv-WQS" firstAttribute="centerX" secondItem="23q-g2-EnZ" secondAttribute="centerX" id="SM6-nd-K4x"/>
-                                    <constraint firstItem="HlH-sv-WQS" firstAttribute="top" secondItem="23q-g2-EnZ" secondAttribute="top" constant="35" id="Ycs-2Y-rSx"/>
+                                    <constraint firstItem="HlH-sv-WQS" firstAttribute="top" secondItem="23q-g2-EnZ" secondAttribute="top" constant="10" id="Ycs-2Y-rSx"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -216,7 +216,7 @@ Female : 17-18 in, 40-55 lbs</string>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBT-Ea-l6a">
                                                 <rect key="frame" x="35" y="721" width="305" height="266"/>
-                                                <mutableString key="text">AmStaffs are stocky, muscular bull-type terriers standing 17 to 19 inches at the shoulder. The head is broad, the jaws well defined, the cheekbones pronounced, and the dark, round eyes are set wide apart. AmStaff movement is agile and graceful, with a springy gait that advertises the breed’s innate confidence. The stiff, glossy coat comes in many colors and patterns. AmStaffers describe their dogs as keenly aware of their surroundings, game for anything, and lovable “personality dogs” around the house. AmStaffs like mental and physical challenges. They are highly trainable, as their many forays into showbiz suggest. When acquiring an AmStaff, there’s only one way to go: Do your homework and find a responsible AKC breeder.</mutableString>
+                                                <string key="text">AmStaffs are stocky, muscular bull-type terriers standing 17 to 19 inches at the shoulder. The head is broad, the jaws well defined, the cheekbones pronounced, and the dark, round eyes are set wide apart. AmStaff movement is agile and graceful, with a springy gait that advertises the breed’s innate confidence. The stiff, glossy coat comes in many colors and patterns. AmStaffers describe their dogs as keenly aware of their surroundings, game for anything, and lovable “personality dogs” around the house. AmStaffs like mental and physical challenges. They are highly trainable, as their many forays into showbiz suggest. When acquiring an AmStaff, there’s only one way to go: Do your homework and find a responsible AKC breeder.</string>
                                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -266,10 +266,21 @@ Female : 17-18 in, 40-55 lbs</string>
                                     <constraint firstItem="4cU-jJ-s4b" firstAttribute="width" secondItem="k6s-Vi-Ice" secondAttribute="width" id="k4j-gk-dIl"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mun-Da-BgM">
+                                <rect key="frame" x="0.0" y="64" width="375" height="150"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="MrG-7I-W8v"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="EnD-Jl-3MM" firstAttribute="trailing" secondItem="k6s-Vi-Ice" secondAttribute="trailing" id="G1b-5H-FgD"/>
+                            <constraint firstItem="Mun-Da-BgM" firstAttribute="top" secondItem="EnD-Jl-3MM" secondAttribute="top" id="Ik2-Wi-PhD"/>
+                            <constraint firstItem="EnD-Jl-3MM" firstAttribute="trailing" secondItem="Mun-Da-BgM" secondAttribute="trailing" id="eGB-ba-Ou6"/>
+                            <constraint firstItem="Mun-Da-BgM" firstAttribute="leading" secondItem="EnD-Jl-3MM" secondAttribute="leading" id="qrY-1y-pbd"/>
                             <constraint firstItem="k6s-Vi-Ice" firstAttribute="leading" secondItem="EnD-Jl-3MM" secondAttribute="leading" id="rAf-R2-p2d"/>
                             <constraint firstItem="EnD-Jl-3MM" firstAttribute="bottom" secondItem="k6s-Vi-Ice" secondAttribute="bottom" id="rDd-pN-j0b"/>
                             <constraint firstItem="k6s-Vi-Ice" firstAttribute="top" secondItem="EnD-Jl-3MM" secondAttribute="top" id="rff-Cp-ezn"/>
@@ -277,6 +288,10 @@ Female : 17-18 in, 40-55 lbs</string>
                         <viewLayoutGuide key="safeArea" id="EnD-Jl-3MM"/>
                     </view>
                     <size key="freeformSize" width="375" height="1000"/>
+                    <connections>
+                        <outlet property="breedPhotosCollectionView" destination="6WY-jC-CyM" id="9h8-fe-IBc"/>
+                        <outlet property="gradientView" destination="Mun-Da-BgM" id="tNG-Hj-tCg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Unu-Ye-q7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,6 +12,7 @@ enum DogAPI {
     case allDogs
     case randomImage
     case image(breed: String)
+    case images(breed: String, count: Int)
     //    case image(breed: String, subbreed: String)
 }
 
@@ -24,6 +25,8 @@ extension DogAPI {
             return "breeds/image/random"
         case .image(let breed):
             return "breed/\(breed)/images/random"
+        case .images(let breed, let count):
+            return "breed/\(breed)/images/random/\(count)"
         }
     }
     
@@ -96,6 +99,24 @@ class DogAPIClient {
                     completion(.success(image))
                 }
                 catch {
+                    completion(.failure(.decodingError))
+                }
+            }
+        }
+    }
+    
+    func getRandomImages(withBreed breed: String, withCount count: Int, completion: @escaping (Result<MultipleDogImagesResponse, NetworkError>) -> Void) {
+        let url = URL(string: "\(baseURL)\(DogAPI.images(breed: breed, count: count).endpoint)")!
+        let networkManager = NetworkManager(url: url)
+        networkManager.getJSON { result in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let data):
+                do {
+                    let images = try JSONDecoder().decode(MultipleDogImagesResponse.self, from: data)
+                    completion(.success(images))
+                } catch {
                     completion(.failure(.decodingError))
                 }
             }
