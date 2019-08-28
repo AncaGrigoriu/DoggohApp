@@ -25,6 +25,8 @@ class BreedsTableViewController: UITableViewController {
     var groupedBreeds = [String:[Breed]]()
     var images = [IndexPath: UIImage]()
     
+    var imagesDispatch = DispatchQueue(label: "images", qos: .userInitiated, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,7 +88,7 @@ extension BreedsTableViewController {
         DogImagesRepository.getRandomImage(forBreed: generalBreed.lowercased()) { result in
             switch result {
             case .success(let imageUrl):
-                DispatchQueue.global(qos: .background).async {
+                self.imagesDispatch.async {
                     do {
                         let data = try Data(contentsOf: URL(string: imageUrl)!)
                         let image = UIImage(data: data)!
@@ -95,7 +97,13 @@ extension BreedsTableViewController {
                             self.images[indexPath] = image
                             breed.photo = image
                             self.groupedBreeds[generalBreed]![indexPath.row] = breed
-                            cell.config(with: breed)
+                            
+                            let visibleIndexPaths = self.tableView.visibleCells.map { currentCell in
+                                return self.tableView.indexPath(for: currentCell)
+                            }
+                            if visibleIndexPaths.contains(indexPath) {
+                                cell.config(with: breed)
+                            }
                         }
                     }
                     catch let error {
@@ -195,7 +203,7 @@ extension BreedsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let generalBreed = generalBreeds[indexPath.section]
         
-        if let image = images[indexPath] {
+        if let image = images[indexPath], image.size != .zero {
             DogImagesRepository.checkBreedMatch(with: image) { response in
                 switch response {
                 case .failure(let error):

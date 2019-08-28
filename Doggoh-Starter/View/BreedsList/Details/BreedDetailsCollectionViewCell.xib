@@ -25,12 +25,22 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6uL-6J-xpE">
                                 <rect key="frame" x="0.0" y="0.0" width="280" height="168"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="maximize" translatesAutoresizingMaskIntoConstraints="NO" id="8pt-4J-hVE">
+                                <rect key="frame" x="236" y="24" width="20" height="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="By5-FJ-VVl"/>
+                                    <constraint firstAttribute="height" constant="20" id="wJQ-tG-wDy"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="8pt-4J-hVE" firstAttribute="top" secondItem="6uL-6J-xpE" secondAttribute="top" constant="24" id="1i1-7d-19B"/>
                             <constraint firstItem="6uL-6J-xpE" firstAttribute="leading" secondItem="LkN-cd-nsc" secondAttribute="leading" id="2TI-Cv-BEc"/>
                             <constraint firstAttribute="trailing" secondItem="6uL-6J-xpE" secondAttribute="trailing" id="5wy-5O-Dge"/>
-                            <constraint firstItem="6uL-6J-xpE" firstAttribute="top" secondItem="LkN-cd-nsc" secondAttribute="top" id="Fii-3s-4Jw"/>
+                            <constraint firstItem="6uL-6J-xpE" firstAttribute="top" secondItem="LkN-cd-nsc" secondAttribute="top" id="Rei-ij-iPf"/>
+                            <constraint firstItem="6uL-6J-xpE" firstAttribute="trailing" secondItem="8pt-4J-hVE" secondAttribute="trailing" constant="24" id="cMC-lh-lTg"/>
                             <constraint firstAttribute="bottom" secondItem="6uL-6J-xpE" secondAttribute="bottom" id="gmP-2t-MJe"/>
                         </constraints>
                     </view>
@@ -46,8 +56,12 @@
             <size key="customSize" width="280" height="246"/>
             <connections>
                 <outlet property="breedImageView" destination="6uL-6J-xpE" id="fBm-Ss-Aea"/>
+                <outlet property="imageParentView" destination="LkN-cd-nsc" id="dTc-Mb-qVO"/>
             </connections>
             <point key="canvasLocation" x="18.840579710144929" y="115.84821428571428"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="maximize" width="512" height="512"/>
+    </resources>
 </document>

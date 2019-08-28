@@ -2,6 +2,24 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Doggoh-Starter/DogEntity+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Doggoh-Starter/DogEntity+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Doggoh-Starter/QuestionEntity+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Doggoh-Starter/QuestionEntity+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Doggoh-Starter/BreedEntity+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Doggoh-Starter/BreedEntity+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:Doggoh-Starter.xcodeproj">
    </FileRef>
    <FileRef

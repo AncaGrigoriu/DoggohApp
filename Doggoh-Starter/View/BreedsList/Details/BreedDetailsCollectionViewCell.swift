@@ -10,6 +10,7 @@ import UIKit
 
 class BreedDetailsCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var imageParentView: UIView!
     @IBOutlet weak var breedImageView: UIImageView!
     
     override func awakeFromNib() {

@@ -110,16 +110,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="LgT-Yc-ONG">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LgT-Yc-ONG" id="jl2-tp-n9u">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="KQh-0x-QEL" id="66A-Ur-hRq"/>
                             <outlet property="delegate" destination="KQh-0x-QEL" id="fQl-da-gwQ"/>
@@ -127,12 +117,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="DOGGOH" id="LRk-BM-XSp"/>
                     <connections>
-                        <segue destination="rl4-mQ-U7p" kind="show" id="RqO-rh-zjV"/>
+                        <segue destination="rl4-mQ-U7p" kind="show" identifier="DogDetailSegue" id="RqO-rh-zjV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s2f-2S-QYB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2566" y="79"/>
+            <point key="canvasLocation" x="2565.5999999999999" y="78.710644677661179"/>
         </scene>
         <!--Breed Details View Controller-->
         <scene sceneID="aPt-an-kOu">
@@ -146,9 +136,9 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="887"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4cU-jJ-s4b">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="987"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1015"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6WY-jC-CyM">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6WY-jC-CyM">
                                                 <rect key="frame" x="16" y="0.0" width="359" height="345"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -162,39 +152,51 @@
                                                 </collectionViewFlowLayout>
                                                 <cells/>
                                             </collectionView>
+                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hTM-wd-mI0">
+                                                <rect key="frame" x="265" y="0.0" width="110" height="345"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="NZk-jD-u3d"/>
+                                                </constraints>
+                                            </view>
+                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="10" translatesAutoresizingMaskIntoConstraints="NO" id="03e-hQ-xfm">
+                                                <rect key="frame" x="112" y="360" width="151" height="37"/>
+                                                <color key="pageIndicatorTintColor" name="backButtonColor"/>
+                                                <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </pageControl>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some info on Amstaffs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXI-xl-7dz">
-                                                <rect key="frame" x="35" y="401" width="207.5" height="22"/>
+                                                <rect key="frame" x="35" y="429" width="207.5" height="22"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEMPERAMENT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWn-gV-JA4">
-                                                <rect key="frame" x="35" y="447" width="340" height="17.5"/>
+                                                <rect key="frame" x="35" y="475" width="340" height="17.5"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confident, smart and good-natured." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LxB-bC-Gcu">
-                                                <rect key="frame" x="35" y="472.5" width="305" height="18"/>
+                                                <rect key="frame" x="35" y="500.5" width="305" height="18"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2r-5S-C44">
-                                                <rect key="frame" x="75" y="525.5" width="300" height="2"/>
+                                                <rect key="frame" x="75" y="553.5" width="300" height="2"/>
                                                 <color key="backgroundColor" name="dogProfileLineColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="PBz-zk-JhF"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HEIGHT &amp; WEIGHT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBA-mk-Qa4">
-                                                <rect key="frame" x="35" y="562.5" width="305" height="17.5"/>
+                                                <rect key="frame" x="35" y="590.5" width="305" height="17.5"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZi-gp-c2B">
-                                                <rect key="frame" x="35" y="588" width="305" height="35.5"/>
+                                                <rect key="frame" x="35" y="616" width="305" height="35.5"/>
                                                 <string key="text">Male : 18-19 in, 55-70 lbs
 Female : 17-18 in, 40-55 lbs</string>
                                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="13"/>
@@ -202,20 +204,20 @@ Female : 17-18 in, 40-55 lbs</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vyz-ps-EAR">
-                                                <rect key="frame" x="75" y="658.5" width="300" height="2"/>
+                                                <rect key="frame" x="75" y="686.5" width="300" height="2"/>
                                                 <color key="backgroundColor" name="dogProfileLineColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="d64-oM-mgS"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABOUT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTX-5n-HBj">
-                                                <rect key="frame" x="35" y="695.5" width="340" height="17.5"/>
+                                                <rect key="frame" x="35" y="723.5" width="340" height="17.5"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBT-Ea-l6a">
-                                                <rect key="frame" x="35" y="721" width="305" height="266"/>
+                                                <rect key="frame" x="35" y="749" width="305" height="266"/>
                                                 <string key="text">AmStaffs are stocky, muscular bull-type terriers standing 17 to 19 inches at the shoulder. The head is broad, the jaws well defined, the cheekbones pronounced, and the dark, round eyes are set wide apart. AmStaff movement is agile and graceful, with a springy gait that advertises the breed’s innate confidence. The stiff, glossy coat comes in many colors and patterns. AmStaffers describe their dogs as keenly aware of their surroundings, game for anything, and lovable “personality dogs” around the house. AmStaffs like mental and physical challenges. They are highly trainable, as their many forays into showbiz suggest. When acquiring an AmStaff, there’s only one way to go: Do your homework and find a responsible AKC breeder.</string>
                                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="13"/>
                                                 <nil key="textColor"/>
@@ -228,14 +230,19 @@ Female : 17-18 in, 40-55 lbs</string>
                                             <constraint firstItem="Vyz-ps-EAR" firstAttribute="width" secondItem="4cU-jJ-s4b" secondAttribute="width" multiplier="0.8" id="6bW-WX-4ox"/>
                                             <constraint firstItem="dBA-mk-Qa4" firstAttribute="leading" secondItem="4cU-jJ-s4b" secondAttribute="leading" constant="35" id="989-Db-9Z8"/>
                                             <constraint firstItem="qTX-5n-HBj" firstAttribute="leading" secondItem="4cU-jJ-s4b" secondAttribute="leading" constant="35" id="ABY-lZ-4oI"/>
+                                            <constraint firstItem="fXI-xl-7dz" firstAttribute="top" secondItem="03e-hQ-xfm" secondAttribute="bottom" constant="32" id="Ax0-mN-ULV"/>
                                             <constraint firstItem="G2r-5S-C44" firstAttribute="top" secondItem="LxB-bC-Gcu" secondAttribute="bottom" constant="35" id="CDL-a4-tut"/>
                                             <constraint firstAttribute="trailing" secondItem="Vyz-ps-EAR" secondAttribute="trailing" id="CnO-ni-rSf"/>
+                                            <constraint firstItem="03e-hQ-xfm" firstAttribute="top" secondItem="6WY-jC-CyM" secondAttribute="bottom" constant="15" id="E2k-fx-UPG"/>
+                                            <constraint firstItem="hTM-wd-mI0" firstAttribute="bottom" secondItem="6WY-jC-CyM" secondAttribute="bottom" id="G9m-8h-ZEJ"/>
                                             <constraint firstAttribute="trailing" secondItem="6WY-jC-CyM" secondAttribute="trailing" id="Inq-1j-ZAv"/>
                                             <constraint firstItem="LxB-bC-Gcu" firstAttribute="top" secondItem="xWn-gV-JA4" secondAttribute="bottom" constant="8" id="Jny-Rn-BzV"/>
                                             <constraint firstItem="6WY-jC-CyM" firstAttribute="leading" secondItem="4cU-jJ-s4b" secondAttribute="leading" constant="16" id="KRg-bS-uD8"/>
+                                            <constraint firstItem="hTM-wd-mI0" firstAttribute="top" secondItem="6WY-jC-CyM" secondAttribute="top" id="QvS-fs-Wp5"/>
                                             <constraint firstItem="EZi-gp-c2B" firstAttribute="top" secondItem="dBA-mk-Qa4" secondAttribute="bottom" constant="8" id="Sqh-lU-jkC"/>
                                             <constraint firstItem="6WY-jC-CyM" firstAttribute="top" secondItem="4cU-jJ-s4b" secondAttribute="top" id="TWr-XC-X7m"/>
                                             <constraint firstAttribute="trailing" secondItem="EZi-gp-c2B" secondAttribute="trailing" constant="35" id="TnJ-j5-P6P"/>
+                                            <constraint firstItem="03e-hQ-xfm" firstAttribute="centerX" secondItem="4cU-jJ-s4b" secondAttribute="centerX" id="WCJ-QZ-EiE"/>
                                             <constraint firstItem="LxB-bC-Gcu" firstAttribute="leading" secondItem="xWn-gV-JA4" secondAttribute="leading" id="WYc-Hz-bvk"/>
                                             <constraint firstItem="Vyz-ps-EAR" firstAttribute="top" secondItem="EZi-gp-c2B" secondAttribute="bottom" constant="35" id="YcK-m7-UpY"/>
                                             <constraint firstAttribute="bottom" secondItem="WBT-Ea-l6a" secondAttribute="bottom" id="Yop-4Z-Ruo"/>
@@ -252,12 +259,12 @@ Female : 17-18 in, 40-55 lbs</string>
                                             <constraint firstAttribute="trailing" secondItem="xWn-gV-JA4" secondAttribute="trailing" id="oeQ-J1-jry"/>
                                             <constraint firstItem="dBA-mk-Qa4" firstAttribute="top" secondItem="G2r-5S-C44" secondAttribute="bottom" constant="35" id="ojf-Ob-gwG"/>
                                             <constraint firstItem="xWn-gV-JA4" firstAttribute="top" secondItem="fXI-xl-7dz" secondAttribute="bottom" constant="24" id="v3o-P5-96C"/>
-                                            <constraint firstItem="fXI-xl-7dz" firstAttribute="top" secondItem="6WY-jC-CyM" secondAttribute="bottom" constant="56" id="vdl-be-jhj"/>
                                             <constraint firstItem="fXI-xl-7dz" firstAttribute="leading" secondItem="4cU-jJ-s4b" secondAttribute="leading" constant="35" id="ybd-F7-uvL"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="hTM-wd-mI0" secondAttribute="trailing" id="6N2-gi-7gh"/>
                                     <constraint firstItem="4cU-jJ-s4b" firstAttribute="height" secondItem="k6s-Vi-Ice" secondAttribute="height" priority="250" id="79z-Nb-Wfd"/>
                                     <constraint firstAttribute="trailing" secondItem="4cU-jJ-s4b" secondAttribute="trailing" id="O9a-yM-jUi"/>
                                     <constraint firstItem="4cU-jJ-s4b" firstAttribute="top" secondItem="k6s-Vi-Ice" secondAttribute="top" id="f6I-5V-kiB"/>
@@ -267,7 +274,7 @@ Female : 17-18 in, 40-55 lbs</string>
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mun-Da-BgM">
-                                <rect key="frame" x="0.0" y="64" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -278,7 +285,7 @@ Female : 17-18 in, 40-55 lbs</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="EnD-Jl-3MM" firstAttribute="trailing" secondItem="k6s-Vi-Ice" secondAttribute="trailing" id="G1b-5H-FgD"/>
-                            <constraint firstItem="Mun-Da-BgM" firstAttribute="top" secondItem="EnD-Jl-3MM" secondAttribute="top" id="Ik2-Wi-PhD"/>
+                            <constraint firstItem="Mun-Da-BgM" firstAttribute="top" secondItem="453-9T-yks" secondAttribute="top" id="Ik2-Wi-PhD"/>
                             <constraint firstItem="EnD-Jl-3MM" firstAttribute="trailing" secondItem="Mun-Da-BgM" secondAttribute="trailing" id="eGB-ba-Ou6"/>
                             <constraint firstItem="Mun-Da-BgM" firstAttribute="leading" secondItem="EnD-Jl-3MM" secondAttribute="leading" id="qrY-1y-pbd"/>
                             <constraint firstItem="k6s-Vi-Ice" firstAttribute="leading" secondItem="EnD-Jl-3MM" secondAttribute="leading" id="rAf-R2-p2d"/>
@@ -291,6 +298,8 @@ Female : 17-18 in, 40-55 lbs</string>
                     <connections>
                         <outlet property="breedPhotosCollectionView" destination="6WY-jC-CyM" id="9h8-fe-IBc"/>
                         <outlet property="gradientView" destination="Mun-Da-BgM" id="tNG-Hj-tCg"/>
+                        <outlet property="lateralGradientView" destination="hTM-wd-mI0" id="aSO-Zd-oTB"/>
+                        <outlet property="pageControl" destination="03e-hQ-xfm" id="ec9-ni-pD3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Unu-Ye-q7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
