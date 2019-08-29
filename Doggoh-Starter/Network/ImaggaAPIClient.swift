@@ -76,10 +76,10 @@ class ImaggaAPIClient {
         }
     }
     
-    func postTags(with image: UIImage, _ completion: @escaping (Result<([Tag]), NetworkError>) -> Void) {
+    func postTags(with image: Data, _ completion: @escaping (Result<([Tag]), NetworkError>) -> Void) {
         let url = "\(baseURL)\(ImaggaAPI.postTags.url)"
         AF.upload(multipartFormData: { (multipartFromData) in
-            multipartFromData.append(image.pngData()!, withName: Parameter.image, mimeType: "image/jpg")
+            multipartFromData.append(image, withName: Parameter.image, mimeType: "image/jpg")
         }, to: url, headers: headers).responseJSON { response in
             switch response.result {
             case .failure(let error):

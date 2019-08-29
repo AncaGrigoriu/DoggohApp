@@ -10,8 +10,8 @@ import UIKit
 
 class BreedDetailsViewController: UIViewController {
     
-    var breedName: String!
-    var subBreedName: String?
+    var breed: Breed!
+    var isSingularBreed: Bool!
     var photos = [UIImage]()
     var isInitialCellLoading = true
     
@@ -41,12 +41,13 @@ class BreedDetailsViewController: UIViewController {
         registerCell(collectionViewCellIdentifier)
         
         breedPhotosCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 110)
-
     }
     
     func configureNavigationBar() {
-        let subBreedNameValue = subBreedName != nil ? "\(subBreedName!.uppercased()) " : ""
-        self.title = "\(subBreedNameValue)\(breedName ?? "")"
+        isSingularBreed = (breed.specificBreedName.lowercased() == breed.generalBreedName.lowercased())
+        let subBreedNameValue = isSingularBreed ? "\(breed.specificBreedName.uppercased()) " : ""
+        let breedName = breed.generalBreedName.uppercased()
+        self.title = "\(subBreedNameValue)\(breedName)"
         
         let backImage = UIImage(named: "backButton")
         let barButton = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(goBack))
@@ -79,7 +80,9 @@ class BreedDetailsViewController: UIViewController {
     }
     
     func getRandomImages() {
-        DogImagesRepository.getRandomImages(forBreed: breedName.lowercased(), withCount: photosCount) { result in
+        let breedName = breed.generalBreedName.lowercased()
+        let subBreedName = breed.specificBreedName.lowercased()
+        let completion: (Result<([String]), NetworkError>) -> Void = { result in
             switch result {
             case .failure(let error):
                 print("error: \(error)")
@@ -100,6 +103,11 @@ class BreedDetailsViewController: UIViewController {
                 }
             }
         }
+        if isSingularBreed {
+            DogImagesRepository.getRandomImages(forBreed: breedName, withCount: photosCount, completion)
+        } else {
+            DogImagesRepository.getRandomImages(forBreed: breedName, forSubBreed: subBreedName, withCount: photosCount, completion)
+        }
     }
 }
 
@@ -114,7 +122,7 @@ extension BreedDetailsViewController: UICollectionViewDataSource {
             cell.breedImageView.image = photos[indexPath.row]
         }
         if isInitialCellLoading && indexPath.row == 1 {
-            applyTransformation(for: cell as! UICollectionViewCell, with: 0.9)
+            applyTransformation(for: cell as UICollectionViewCell, with: 0.9)
             isInitialCellLoading = false
         }
         

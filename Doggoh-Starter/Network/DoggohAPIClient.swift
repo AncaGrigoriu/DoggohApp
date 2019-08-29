@@ -14,6 +14,7 @@ enum DoggohAPI {
     case randomImage
     case image(breed: String)
     case images(breed: String, count: Int)
+    case subBreedImages(breed: String, subBreed: String, count: Int)
 }
 
 extension DoggohAPI {
@@ -27,6 +28,8 @@ extension DoggohAPI {
             return "breed/\(breed)/images/random"
         case .images(let breed, let count):
             return "breed/\(breed)/images/random/\(count)"
+        case .subBreedImages(let breed, let subBreed, let count):
+            return "breed/\(breed)/\(subBreed)/images/random/\(count)"
         }
     }
     
@@ -39,6 +42,8 @@ extension DoggohAPI {
         case .image(_):
             return .get
         case .images(_, _):
+            return .get
+        case .subBreedImages(_, _, _):
             return .get
         }
     }
@@ -125,6 +130,27 @@ class DoggohAPIClient {
         let url = "\(baseURL)\(DoggohAPI.images(breed: breed, count: count).endpoint)"
         
         AF.request(url, method: DoggohAPI.images(breed: breed, count: count).method).responseJSON { response in
+            switch response.result {
+            case .failure(let error):
+                print(error)
+                completion(.failure(.domainError))
+            case .success(_):
+                if let data = response.data {
+                    do {
+                        let images = try JSONDecoder().decode(MultipleDogImagesResponse.self, from: data)
+                        completion(.success(images))
+                    } catch {
+                        completion(.failure(.decodingError))
+                    }
+                }
+            }
+        }
+    }
+    
+    func getRandomImages(withBreed breed: String, withSubBreed subBreed: String, withCount count: Int, completion: @escaping (Result<MultipleDogImagesResponse, NetworkError>) -> Void) {
+        let url = "\(baseURL)\(DoggohAPI.subBreedImages(breed: breed, subBreed: subBreed, count: count).endpoint)"
+        
+        AF.request(url, method: DoggohAPI.subBreedImages(breed: breed, subBreed: subBreed, count: count).method).responseJSON { response in
             switch response.result {
             case .failure(let error):
                 print(error)

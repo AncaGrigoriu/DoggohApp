@@ -4,6 +4,7 @@
         <attribute name="generalBreedName" attributeType="String" syncable="YES"/>
         <attribute name="photo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="specificBreedName" attributeType="String" syncable="YES"/>
+        <attribute name="subBreedPhotos" attributeType="Transformable" customClassName="[BreedImage]" syncable="YES"/>
     </entity>
     <entity name="BreedImage" representedClassName="BreedImage" syncable="YES">
         <attribute name="image" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
@@ -14,13 +15,13 @@
     </entity>
     <entity name="Question" representedClassName="Question" syncable="YES">
         <attribute name="answer" attributeType="String" syncable="YES"/>
-        <attribute name="options" attributeType="Transformable" syncable="YES"/>
+        <attribute name="options" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
         <attribute name="question" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Breed" positionX="9" positionY="81" width="128" height="90"/>
-        <element name="Dog" positionX="-18" positionY="54" width="128" height="75"/>
-        <element name="Question" positionX="-45" positionY="0" width="128" height="90"/>
-        <element name="BreedImage" positionX="36" positionY="117" width="128" height="60"/>
+        <element name="Breed" positionX="242.171875" positionY="-119.58203125" width="128" height="103"/>
+        <element name="Dog" positionX="-122.78515625" positionY="57.22265625" width="128" height="73"/>
+        <element name="Question" positionX="-131.9140625" positionY="-122.2578125" width="128" height="88"/>
+        <element name="BreedImage" positionX="68.35546875" positionY="62.0703125" width="128" height="58"/>
     </elements>
 </model>

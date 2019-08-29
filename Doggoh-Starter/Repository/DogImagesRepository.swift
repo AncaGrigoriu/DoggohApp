@@ -47,7 +47,18 @@ struct DogImagesRepository {
         }
     }
     
-    static func checkBreedMatch(with image: UIImage, _ completion: @escaping (Result<([String]), NetworkError>) -> Void) {
+    static func getRandomImages(forBreed: String, forSubBreed: String, withCount count: Int, _ completion: @escaping (Result<([String]), NetworkError>) -> Void) {
+        apiClient.getRandomImages(withBreed: forBreed, withSubBreed: forSubBreed, withCount: count) { result in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let images):
+                completion(.success(images.imageURLs))
+            }
+        }
+    }
+    
+    static func checkBreedMatch(with image: Data, _ completion: @escaping (Result<([String]), NetworkError>) -> Void) {
         imaggaAPIClient.postTags(with: image) { response in
             switch response {
             case .failure(let error):
