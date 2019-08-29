@@ -15,7 +15,11 @@ class BreedTableViewCell: UITableViewCell, CellConfigurable {
     @IBOutlet weak var breedLabel: UILabel!
     
     func config(with dog: Breed) {
-        breedImageView.image = dog.photo
+        if let data = dog.photo as Data? {
+            breedImageView.image = UIImage(data: data)
+        } else {
+            breedImageView.image = UIImage()
+        }
         breedLabel.text = dog.specificBreedName
         breedImageView.layer.cornerRadius = breedImageView.bounds.height / 2
     }
