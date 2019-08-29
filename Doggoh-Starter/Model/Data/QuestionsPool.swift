@@ -9,29 +9,29 @@
 import Foundation
 
 struct QuestionsPool {
-    var pool: [Question]
+    var pool: [QuestionClass]
     
     init(rawData: Dictionary<String, AnyObject>) {
-        pool = [Question]()
+        pool = [QuestionClass]()
         
         if let jsonData = rawData["questions"] as? [[String:AnyObject]] {
             jsonData.forEach { item in
                 if let questionText = item["question"] as? String,
                     let optionsArray = item["options"] as? [String],
                     let answer = item["answer"] as? String {
-                    pool.append(Question(question: questionText, options: optionsArray, answer: answer))
+                    pool.append(QuestionClass(question: questionText, options: optionsArray, answer: answer))
                 }
             }
         }
     }
     
-    func getQuestions() -> [Question] {
+    func getQuestions() -> [QuestionClass] {
         guard pool.count >= 10 else {
             return pool
         }
         
         var poolCopy = pool
-        var result = [Question]()
+        var result = [QuestionClass]()
         while result.count < 10 {
             let randomIndex = Int.random(in: 0..<poolCopy.count)
             result.append(poolCopy[randomIndex])

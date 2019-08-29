@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Dog {
+struct DogClass {
     var image: UIImage
     var name: String
     
@@ -26,14 +26,14 @@ struct Dog {
         self.init(image: image, name: name)
     }
     
-    static func allDogs() -> [Dog] {
-        var dogs = [Dog]()
+    static func allDogs() -> [DogClass] {
+        var dogs = [DogClass]()
         guard let URL = Bundle.main.url(forResource: "Dogs", withExtension: "plist"),
             let photosFromPlist = NSArray(contentsOf: URL) as? [[String:String]] else {
                 return dogs
         }
         for dictionary in photosFromPlist {
-            if let dog = Dog(dictionary: dictionary) {
+            if let dog = DogClass(dictionary: dictionary) {
                 dogs.append(dog)
             }
         }
@@ -41,8 +41,8 @@ struct Dog {
     }
 }
 
-extension Dog: Equatable {
-    static func ==(lhs: Dog, rhs:Dog) -> Bool {
+extension DogClass: Equatable {
+    static func ==(lhs: DogClass, rhs:DogClass) -> Bool {
         return lhs.name == rhs.name && lhs.image == rhs.image
     }
 }

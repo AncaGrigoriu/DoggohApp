@@ -16,18 +16,18 @@ protocol QuizFlowDelegate: class {
 }
 
 class QuizCoordinator {
-    private var questions: [Question]
+    private var questions: [QuestionClass]
     private var currentIndex: Int = 0
     private var score: Int = 0
     private var navigationController: UINavigationController? = nil
     
     weak var flowDelegate: QuizFlowDelegate?
     
-    init(questions: [Question]) {
+    init(questions: [QuestionClass]) {
         self.questions = questions
     }
     
-    func setQuestions(questions: [Question]) {
+    func setQuestions(questions: [QuestionClass]) {
         self.questions = questions
     }
     
@@ -40,7 +40,7 @@ class QuizCoordinator {
         }
     }
     
-    func getQuizViewController(question: Question, atIndex index: Int, inTotal total: Int) -> QuestionViewController? {
+    func getQuizViewController(question: QuestionClass, atIndex index: Int, inTotal total: Int) -> QuestionViewController? {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "QuestionViewController") as? QuestionViewController
         

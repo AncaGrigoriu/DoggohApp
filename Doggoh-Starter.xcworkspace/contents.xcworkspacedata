@@ -2,22 +2,28 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Doggoh-Starter/DogEntity+CoreDataClass.swift">
+      location = "group:/Users/ancagrigoriu/Downloads/Doggoh-Starter 2/Doggoh-Starter/Model/Data/Question+CoreDataClass.swift">
    </FileRef>
    <FileRef
-      location = "group:Doggoh-Starter/DogEntity+CoreDataProperties.swift">
+      location = "group:/Users/ancagrigoriu/Downloads/Doggoh-Starter 2/Doggoh-Starter/Model/Data/Question+CoreDataProperties.swift">
    </FileRef>
    <FileRef
-      location = "group:Doggoh-Starter/QuestionEntity+CoreDataClass.swift">
+      location = "group:/Users/ancagrigoriu/Downloads/Doggoh-Starter 2/Doggoh-Starter/Model/Data/Breed+CoreDataClass.swift">
    </FileRef>
    <FileRef
-      location = "group:Doggoh-Starter/QuestionEntity+CoreDataProperties.swift">
+      location = "group:/Users/ancagrigoriu/Downloads/Doggoh-Starter 2/Doggoh-Starter/Model/Data/Breed+CoreDataProperties.swift">
    </FileRef>
    <FileRef
-      location = "group:Doggoh-Starter/BreedEntity+CoreDataClass.swift">
+      location = "group:/Users/ancagrigoriu/Downloads/Doggoh-Starter 2/Doggoh-Starter/Model/Data/Dog+CoreDataClass.swift">
    </FileRef>
    <FileRef
-      location = "group:Doggoh-Starter/BreedEntity+CoreDataProperties.swift">
+      location = "group:/Users/ancagrigoriu/Downloads/Doggoh-Starter 2/Doggoh-Starter/Model/Data/Dog+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/ancagrigoriu/Downloads/Doggoh-Starter 2/Doggoh-Starter/Model/Data/BreedImage+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/ancagrigoriu/Downloads/Doggoh-Starter 2/Doggoh-Starter/Model/Data/BreedImage+CoreDataProperties.swift">
    </FileRef>
    <FileRef
       location = "group:Doggoh-Starter.xcodeproj">

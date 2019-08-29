@@ -19,7 +19,7 @@ class DogCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var dog: Dog! {
+    var dog: DogClass! {
         didSet {
             dogImageView.image = dog.image
             dogNameLabel.text = dog.name

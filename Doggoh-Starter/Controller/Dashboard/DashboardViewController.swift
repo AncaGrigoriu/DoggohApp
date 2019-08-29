@@ -13,12 +13,12 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var gradientView: UIView!
     
-    var dogs = Dog.allDogs()
+    var dogs = DogClass.allDogs()
     
     let defaultSpace: CGFloat = 8
     let numberOfColumns: CGFloat = 2
     
-    var selectedItems = [Dog]()
+    var selectedItems = [DogClass]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

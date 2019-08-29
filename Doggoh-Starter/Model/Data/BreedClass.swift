@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Breed {
+struct BreedClass {
     var generalBreedName: String
     var specificBreedName: String
     var photo: UIImage
