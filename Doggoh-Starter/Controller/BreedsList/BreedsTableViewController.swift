@@ -23,9 +23,10 @@ protocol CellConfigurable {
 class BreedsTableViewController: UITableViewController {
     
     var fetchRC: NSFetchedResultsController<Breed>?
-    var images = [IndexPath: UIImage]()
     
     var imagesDispatch = DispatchQueue(label: "images", qos: .userInitiated, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
+    
+    var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +39,21 @@ class BreedsTableViewController: UITableViewController {
         
         tableView.rowHeight = 56
         tableView.separatorStyle = .none
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        addActivityIndicator()
         getDogsData()
+    }
+    
+    private func addActivityIndicator() {
+        activityIndicator = UIActivityIndicatorView(style: .gray)
+        let frame = view.frame
+        activityIndicator.center = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
     }
     
     func registerCell(_ reuseId: String) {
@@ -62,6 +76,7 @@ extension BreedsTableViewController {
             case .success(let breeds):
                 self.fetchRC = breeds
                 self.fetchRC?.delegate = self
+                self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
             }
         }
@@ -76,10 +91,8 @@ extension BreedsTableViewController {
                 self.imagesDispatch.async {
                     do {
                         let data = try Data(contentsOf: URL(string: imageUrl)!)
-                        let image = UIImage(data: data)!
                         
                         DispatchQueue.main.async {
-                            self.images[indexPath] = image
                             breed.photo = data as NSData
                             BreedsRepository.updateBreed(at: indexPath, with: breed)
                             
@@ -121,23 +134,17 @@ extension BreedsTableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.singleSubBreedCellIdentifier, for: indexPath) as! BreedTableViewCell
             cell.config(with: dog)
             
-            if let cellConfigurable = cell as? CellConfigurable {
-                indexPathImage(for: indexPath, cell: cellConfigurable)
-            }
+            indexPathImage(for: indexPath, cell: cell as CellConfigurable)
             
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.multipleSubBreedsCellIdentifier, for: indexPath) as! SubBreedTableViewCell
             cell.config(with: dog)
             
-            if let cellConfigurable = cell as? CellConfigurable {
-                indexPathImage(for: indexPath, cell: cellConfigurable)
-            }
+            indexPathImage(for: indexPath, cell: cell as CellConfigurable)
             
             return cell
         }
-        
-        return UITableViewCell()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -190,8 +197,8 @@ extension BreedsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let breed = fetchRC!.object(at: indexPath)
         
-        if let image = images[indexPath], image.size != .zero {
-            DogImagesRepository.checkBreedMatch(with: image) { response in
+        if let photo = breed.photo {
+            DogImagesRepository.checkBreedMatch(with: photo as Data) { response in
                 switch response {
                 case .failure(let error):
                     print("error: \(error)")
@@ -208,11 +215,7 @@ extension BreedsTableViewController {
         
         let breedDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "BreedDetailsViewController") as! BreedDetailsViewController
         
-        breedDetailsViewController.breedName = breed.generalBreedName
-        if breed.generalBreedName != breed.specificBreedName {
-            breedDetailsViewController.subBreedName = breed.specificBreedName
-        }
-        
+        breedDetailsViewController.breed = breed
         self.navigationController!.pushViewController(breedDetailsViewController, animated: true)
     }
 }
