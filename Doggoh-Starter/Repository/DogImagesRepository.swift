@@ -36,7 +36,19 @@ struct DogImagesRepository {
         }
     }
     
-    static func getRandomImages(forBreed: String, withCount count: Int, _ completion: @escaping (Result<([String]), NetworkError>) -> Void) {
+    static func getRandomImages(for breed: Breed, withCount count: Int, _ completion: @escaping (Result<([String]), NetworkError>) -> Void) {
+        let breedName = breed.generalBreedName.lowercased()
+        let subBreedName = breed.specificBreedName.lowercased()
+        let isSingularBreed = (breed.specificBreedName.lowercased() == breed.generalBreedName.lowercased())
+        
+        if isSingularBreed {
+            getRandomImages(forBreed: breedName, withCount: count, completion)
+        } else {
+            getRandomImages(forBreed: breedName, forSubBreed: subBreedName, withCount: count, completion)
+        }
+    }
+    
+    private static func getRandomImages(forBreed: String, withCount count: Int, _ completion: @escaping (Result<([String]), NetworkError>) -> Void) {
         apiClient.getRandomImages(withBreed: forBreed, withCount: count) { result in
             switch result {
             case .failure(let error):
@@ -47,7 +59,7 @@ struct DogImagesRepository {
         }
     }
     
-    static func getRandomImages(forBreed: String, forSubBreed: String, withCount count: Int, _ completion: @escaping (Result<([String]), NetworkError>) -> Void) {
+    private static func getRandomImages(forBreed: String, forSubBreed: String, withCount count: Int, _ completion: @escaping (Result<([String]), NetworkError>) -> Void) {
         apiClient.getRandomImages(withBreed: forBreed, withSubBreed: forSubBreed, withCount: count) { result in
             switch result {
             case .failure(let error):

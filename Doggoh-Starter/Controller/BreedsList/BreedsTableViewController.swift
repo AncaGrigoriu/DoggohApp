@@ -216,6 +216,7 @@ extension BreedsTableViewController {
         let breedDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "BreedDetailsViewController") as! BreedDetailsViewController
         
         breedDetailsViewController.breed = breed
+        breedDetailsViewController.breedIndexPath = indexPath
         self.navigationController!.pushViewController(breedDetailsViewController, animated: true)
     }
 }

@@ -104,6 +104,7 @@ struct BreedsRepository {
         newBreed.generalBreedName = generalBreedName
         newBreed.photo = photo
         newBreed.specificBreedName = specificBreedName
+        newBreed.subBreedPhotos = []
         appDelegate.saveContext()
     }
 }
