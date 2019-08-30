@@ -21,10 +21,15 @@ class CharacterTableViewCell: UITableViewCell {
     let characterCellReusableIdentifier = "CharacterCollectionViewCell"
     
     var selectedItems = [String]()
+    let userDefaults = UserDefaults.standard
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        if let selectedArray = userDefaults.stringArray(forKey: DogProfileConstants.characteristicsKey) {
+            selectedItems = selectedArray
+        }
+
         registerCell(characterCellReusableIdentifier)
         
         collectionView.delegate = self
@@ -59,8 +64,9 @@ extension CharacterTableViewCell: UICollectionViewDataSource {
         
         cell.characteristicLabel.text = characteristic
         
-        if(selectedItems.contains(characteristic)) {
+        if (selectedItems.contains(characteristic)) {
             cell.isSelected = true
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
         }
         
         return cell
@@ -88,12 +94,14 @@ extension CharacterTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let characteristic = characteristics[indexPath.row]
         selectedItems.append(characteristic)
+        userDefaults.set(selectedItems, forKey: DogProfileConstants.characteristicsKey)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let characteristic = characteristics[indexPath.row]
         if let index = selectedItems.firstIndex(of: characteristic) {
             selectedItems.remove(at: index)
+            userDefaults.set(selectedItems, forKey: DogProfileConstants.characteristicsKey)
         }
     }
 }

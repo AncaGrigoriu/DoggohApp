@@ -18,9 +18,10 @@ class DogPictureTableViewCell: UITableViewCell {
     
     var activeTextField: UITextField!
     
-    let breeds: [String] = getBreeds()
+    var breeds: [String] = []
     var breedIndex: Int = 0
     var picker: UIPickerView!
+    let userDefaults = UserDefaults.standard
     
     weak var delegate: DogPictureTableViewCellDelegate?
     
@@ -29,6 +30,7 @@ class DogPictureTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        getBreeds()
         activeTextField = nil
         configureTextField()
     }
@@ -38,7 +40,14 @@ class DogPictureTableViewCell: UITableViewCell {
         let rightViewImageView = UIImageView(image: rightViewImage)
         dogBreedTextField.rightView = rightViewImageView
         dogBreedTextField.rightViewMode = .always
-        dogBreedTextField.text = breeds[breedIndex]
+        
+        if let breed = userDefaults.string(forKey: DogProfileConstants.breedKey) {
+            dogBreedTextField.text = breed
+        } else {
+            if breeds.count > 0 {
+                dogBreedTextField.text = breeds[breedIndex]
+            }
+        }
         
         configureInputView()
         configureInputAccesoryView()
@@ -69,6 +78,7 @@ class DogPictureTableViewCell: UITableViewCell {
     
     @objc func saveButtonClicked() {
         breedIndex = picker.selectedRow(inComponent: 0)
+        userDefaults.set(dogBreedTextField.text, forKey: DogProfileConstants.breedKey)
         dogBreedTextField.resignFirstResponder()
     }
     
@@ -102,21 +112,25 @@ class DogPictureTableViewCell: UITableViewCell {
         delegate?.keyboardWillHide(notification: notification)
     }
     
-    private static func getBreeds() -> [String] {
-        var result = [String]()
-        if let data = BreedsRepository.dataFromJSON(withName: BreedsRepository.filename),
-            let jsonData = data["message"] as? [String:[String]] {
-            jsonData.forEach { generalBreed, specificBreeds in
-                specificBreeds.forEach { breedName in
-                    result.append("\(breedName.capitalized) \(generalBreed.capitalized)")
-                }
-                
-                if specificBreeds.count == 0 {
-                    result.append(generalBreed.capitalized)
+    private func getBreeds() {
+        BreedsRepository.getBreedList { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let breeds):
+                    breeds.fetchedObjects?.forEach { breed in
+                        let breedName = breed.generalBreedName.lowercased()
+                        let subBreedName = breed.specificBreedName.lowercased()
+                        if breedName == subBreedName {
+                            self.breeds.append(breedName.capitalized)
+                        } else {
+                            self.breeds.append("\(subBreedName.capitalized) \(breedName.capitalized)")
+                        }
+                    }
                 }
             }
         }
-        return result.sorted()
     }
 }
 

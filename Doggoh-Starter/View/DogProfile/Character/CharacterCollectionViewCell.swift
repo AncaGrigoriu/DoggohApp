@@ -62,5 +62,4 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         cellBackgroundView.layer.backgroundColor = type.backgroundColor
         characteristicLabel.textColor = type.textColor
     }
-    
 }
