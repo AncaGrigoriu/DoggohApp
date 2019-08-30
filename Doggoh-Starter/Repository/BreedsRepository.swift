@@ -62,15 +62,18 @@ struct BreedsRepository {
     
     private static func getDogs(_ completion: @escaping (Result<NSFetchedResultsController<Breed>, NetworkError>) -> Void) {
         apiClient.getAllDogs { result in
-            switch result {
-            case .failure(let error):
-                completion(.failure(error))
-            case .success(let dogsResponse):
-                dogsResponse.forEach{ dogResponse in
-                    getBreeds(dogResponse: dogResponse)
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    completion(.failure(error))
+                case .success(let dogsResponse):
+                    
+                    dogsResponse.forEach{ dogResponse in
+                        getBreeds(dogResponse: dogResponse)
+                    }
+                    getStoredDogs()
+                    completion(.success(fetchRC))
                 }
-                getStoredDogs()
-                completion(.success(fetchRC))
             }
         }
     }
@@ -89,6 +92,7 @@ struct BreedsRepository {
     
     private static func getStoredDogs() {
         let request = Breed.fetchRequest() as NSFetchRequest<Breed>
+        
         let sort = NSSortDescriptor(key: #keyPath(Breed.generalBreedName), ascending: true, selector: nil)
         request.sortDescriptors = [sort]
         do {

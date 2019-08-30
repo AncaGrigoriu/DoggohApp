@@ -22,7 +22,7 @@ protocol CellConfigurable {
 
 class BreedsTableViewController: UITableViewController {
     
-    var fetchRC: NSFetchedResultsController<Breed>?
+    weak var fetchRC: NSFetchedResultsController<Breed>?
     
     var imagesDispatch = DispatchQueue(label: "images", qos: .userInitiated, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
     
@@ -70,14 +70,15 @@ class BreedsTableViewController: UITableViewController {
 extension BreedsTableViewController {
     func getDogsData() {
         BreedsRepository.getBreedList { result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let breeds):
-                self.fetchRC = breeds
-                self.fetchRC?.delegate = self
-                self.activityIndicator.stopAnimating()
-                self.tableView.reloadData()
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let breeds):
+                    self.fetchRC = breeds
+                    self.activityIndicator.stopAnimating()
+                    self.tableView.reloadData()
+                }
             }
         }
     }
@@ -88,10 +89,9 @@ extension BreedsTableViewController {
         DogImagesRepository.getRandomImage(forBreed: generalBreed.lowercased()) { result in
             switch result {
             case .success(let imageUrl):
-                self.imagesDispatch.async {
+                DispatchQueue.global().async {
                     do {
                         let data = try Data(contentsOf: URL(string: imageUrl)!)
-                        
                         DispatchQueue.main.async {
                             breed.photo = data as NSData
                             BreedsRepository.updateBreed(at: indexPath, with: breed)
@@ -197,41 +197,27 @@ extension BreedsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let breed = fetchRC!.object(at: indexPath)
         
-        if let photo = breed.photo {
-            DogImagesRepository.checkBreedMatch(with: photo as Data) { response in
-                switch response {
-                case .failure(let error):
-                    print("error: \(error)")
-                case .success(let result):
-                    print(result)
-                    if result.contains(breed.generalBreedName.lowercased()) {
-                        print("Photo matches breed")
-                    } else {
-                        print("Photo does not match breed")
-                    }
-                }
-            }
-        }
+//        if let photo = breed.photo {
+//            DogImagesRepository.checkBreedMatch(with: photo as Data) { response in
+//                switch response {
+//                case .failure(let error):
+//                    print("error: \(error)")
+//                case .success(let result):
+//                    print(result)
+//                    if result.contains(breed.generalBreedName.lowercased()) {
+//                        print("Photo matches breed")
+//                    } else {
+//                        print("Photo does not match breed")
+//                    }
+//                }
+//            }
+//        }
         
         let breedDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "BreedDetailsViewController") as! BreedDetailsViewController
         
         breedDetailsViewController.breed = breed
         breedDetailsViewController.breedIndexPath = indexPath
         self.navigationController!.pushViewController(breedDetailsViewController, animated: true)
-    }
-}
-
-extension BreedsTableViewController: NSFetchedResultsControllerDelegate {
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        let index = indexPath ?? (newIndexPath ?? nil)
-        guard let cellIndex = index else { return }
-        switch type {
-        case .insert:
-            tableView.insertRows(at: [cellIndex], with: .automatic)
-        default:
-            break
-        }
-        
     }
 }
 

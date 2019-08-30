@@ -14,7 +14,7 @@ protocol QuestionDelegate: class {
 
 class QuestionViewController: UIViewController {
 
-    var question: QuestionClass!
+    var question: Question!
     var index: Int!
     var total: Int!
     
@@ -41,7 +41,7 @@ class QuestionViewController: UIViewController {
         update(withQuestion: question, atIndex: index, inTotal: total)
     }
     
-    private func update(withQuestion question: QuestionClass, atIndex index: Int, inTotal total: Int) {
+    private func update(withQuestion question: Question, atIndex index: Int, inTotal total: Int) {
         questionLabel.text = question.question
         counterLabel.text = "\(index + 1)/\(total)"
     }

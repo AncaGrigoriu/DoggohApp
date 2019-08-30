@@ -19,9 +19,10 @@ class DogCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var dog: DogClass! {
+    var dog: Dog! {
         didSet {
-            dogImageView.image = dog.image
+            guard let image = dog.image else { return }
+            dogImageView.image = UIImage(data: image as Data)
             dogNameLabel.text = dog.name
         }
     }

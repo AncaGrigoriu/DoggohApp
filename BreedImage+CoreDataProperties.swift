@@ -2,7 +2,7 @@
 //  BreedImage+CoreDataProperties.swift
 //  
 //
-//  Created by Anca Grigoriu on 29/08/2019.
+//  Created by Anca Grigoriu on 30/08/2019.
 //
 //
 
@@ -17,5 +17,7 @@ extension BreedImage {
     }
 
     @NSManaged public var image: NSData
+    @NSManaged public var breedName: String
+    @NSManaged public var breed: Breed
 
 }

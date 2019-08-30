@@ -13,12 +13,13 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var gradientView: UIView!
     
-    var dogs = DogClass.allDogs()
+    var dogs = DogsRepository.getDogs() ?? []
+//    var dogs: [Dog] = []
     
     let defaultSpace: CGFloat = 8
     let numberOfColumns: CGFloat = 2
     
-    var selectedItems = [DogClass]()
+    var selectedItems = [Dog]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +73,12 @@ class DashboardViewController: UIViewController {
 
 extension DashboardViewController: PinterestLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-        return dogs[indexPath.item].image.size.height
+        let dog = dogs[indexPath.row]
+        if let dogImage = dog.image,
+            let image = UIImage(data: dogImage as Data) {
+            return image.size.height * 0.7
+        }
+        return 0
     }
 }
 
@@ -84,11 +90,6 @@ extension DashboardViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return defaultSpace
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let aux = dogs.remove(at: sourceIndexPath.item)
-        dogs.insert(aux, at: destinationIndexPath.item)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

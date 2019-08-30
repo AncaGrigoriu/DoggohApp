@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class BreedDetailsViewController: UIViewController {
     
     var breed: Breed!
     var breedIndexPath: IndexPath!
-    var photos = [UIImage]()
     var isInitialCellLoading = true
     
     let photosCount = 4
@@ -22,6 +22,9 @@ class BreedDetailsViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var lateralGradientView: UIView!
+    
+    var fetchRC: NSFetchedResultsController<BreedImage>?
+    var images: [BreedImage]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +48,7 @@ class BreedDetailsViewController: UIViewController {
     
     func configureNavigationBar() {
         let isSingularBreed = (breed.specificBreedName.lowercased() == breed.generalBreedName.lowercased())
-        let subBreedNameValue = isSingularBreed ? "\(breed.specificBreedName.uppercased()) " : ""
+        let subBreedNameValue = !isSingularBreed ? "\(breed.specificBreedName.uppercased()) " : ""
         let breedName = breed.generalBreedName.uppercased()
         self.title = "\(subBreedNameValue)\(breedName)"
         
@@ -80,24 +83,22 @@ class BreedDetailsViewController: UIViewController {
     }
     
     func getRandomImages() {
-        DogImagesRepository.getRandomImages(for: breed, withCount: photosCount) { result in
-            switch result {
-            case .failure(let error):
-                print("error: \(error)")
-            case .success(let values):
-                do {
-                    for itemURL in values {
-                        let data = try Data(contentsOf: URL(string: itemURL)!)
-                        let image = UIImage(data: data)!
-                        self.photos.append(image)
-                    }
-                } catch let error {
-                    print("error: \(error)")
-                }
-                
+        if let dogImages = breed.breedPhotos,
+            dogImages.count > 0 {
+            images = dogImages.allObjects as? [BreedImage]
+        } else {
+            DogImagesRepository.getImages(for: breed, withCount: photosCount) { result in
                 DispatchQueue.main.async {
-                    self.isInitialCellLoading = true
-                    self.breedPhotosCollectionView.reloadData()
+                    switch result {
+                    case .failure(let error):
+                        print("error: \(error)")
+                    case .success(_):
+                        if let dogImages = self.breed.breedPhotos {
+                            self.images = dogImages.allObjects as? [BreedImage]
+                        }
+                        self.isInitialCellLoading = true
+                        self.breedPhotosCollectionView.reloadData()
+                    }
                 }
             }
         }
@@ -106,14 +107,13 @@ class BreedDetailsViewController: UIViewController {
 
 extension BreedDetailsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photosCount
+        return images?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionViewCellIdentifier, for: indexPath) as! BreedDetailsCollectionViewCell
-        if photos.count > indexPath.row {
-            cell.breedImageView.image = photos[indexPath.row]
-        }
+        let data = images![indexPath.row].image
+        cell.breedImageView.image = UIImage(data: data as Data)
         if isInitialCellLoading && indexPath.row == 1 {
             applyTransformation(for: cell as UICollectionViewCell, with: 0.9)
             isInitialCellLoading = false

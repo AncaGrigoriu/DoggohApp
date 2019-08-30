@@ -24,14 +24,10 @@ class QuizViewController: UIViewController {
     }
 
     @IBAction func beginQuizClicked(_ sender: UIButton) {
-        if let data = QuestionsRepository.dataFromJSON(withName: QuestionsRepository.filename) {
-            let questionsPool = QuestionsPool(rawData: data)
-            let randomQuestions = questionsPool.getQuestions()
-            
-            coordinator = QuizCoordinator(questions: randomQuestions)
-            coordinator.flowDelegate = self
-            coordinator.startQuiz()
-        }
+        let randomQuestions = QuestionsRepository.getQuestions()
+        coordinator = QuizCoordinator(questions: randomQuestions)
+        coordinator.flowDelegate = self
+        coordinator.startQuiz()
     }
 }
 
@@ -47,13 +43,9 @@ extension QuizViewController: QuizFlowDelegate {
     }
     
     func willRetakeQuiz() {
-        if let data = QuestionsRepository.dataFromJSON(withName: QuestionsRepository.filename) {
-            let questionsPool = QuestionsPool(rawData: data)
-            let randomQuestions = questionsPool.getQuestions()
-            
-            coordinator.setQuestions(questions: randomQuestions)
-            coordinator.startQuiz()
-        }
+        let randomQuestions = QuestionsRepository.getQuestions()
+        coordinator.setQuestions(questions: randomQuestions)
+        coordinator.startQuiz()
     }
 }
 
