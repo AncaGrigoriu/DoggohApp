@@ -44,10 +44,8 @@ class QuizCoordinator {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "QuestionViewController") as? QuestionViewController
         
-        viewController?.question = question
-        viewController?.index = index
-        viewController?.total = total
         viewController?.delegate = self
+        viewController?.viewmodel = QuestionViewModel(withQuestion: question, withIndex: index, withTotal: total)
         
         return viewController
     }
@@ -56,9 +54,8 @@ class QuizCoordinator {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "ResultsViewController") as? ResultsViewController
         
-        viewController?.score = score
-        viewController?.total = total
         viewController?.delegate = self
+        viewController?.viewmodel = ResultsViewModel(score: score, total: total)
         
         return viewController
     }

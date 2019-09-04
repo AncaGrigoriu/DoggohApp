@@ -11,4 +11,10 @@ import UIKit
 class DogsTableViewHeader: UITableViewHeaderFooterView {
     
     @IBOutlet weak var headerTextLabel: UILabel!
+    
+    var viewmodel: DogsTableViewHeaderViewModel! {
+        didSet {
+            headerTextLabel.text = viewmodel.breedNameString
+        }
+    }
 }

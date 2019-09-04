@@ -14,14 +14,13 @@ protocol ResultsDelegate: class {
 
 class ResultsViewController: UIViewController {
 
-    var score: Int!
-    var total: Int!
-    
     weak var delegate: ResultsDelegate?
     
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var totalScoreLabel: UILabel!
     @IBOutlet weak var retakeQuizButton: QuizButton!
+    
+    var viewmodel: ResultsViewModel! 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +29,13 @@ class ResultsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.setHidesBackButton(true, animated: false)
-        setScore(withScore: score, withTotal: total)
+        configureLabels()
         configureButton()
     }
     
-    func setScore(withScore score: Int, withTotal total: Int) {
-        scoreLabel.text = score < 10 ? "0\(score)" : "\(score)"
-        totalScoreLabel.text = "/\(total)"
+    func configureLabels() {
+        scoreLabel.text = viewmodel.scoreString
+        totalScoreLabel.text = viewmodel.totalScoreString
     }
     
     func configureButton() {

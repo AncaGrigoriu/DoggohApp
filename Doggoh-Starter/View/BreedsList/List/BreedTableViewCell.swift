@@ -14,13 +14,23 @@ class BreedTableViewCell: UITableViewCell, CellConfigurable {
     
     @IBOutlet weak var breedLabel: UILabel!
     
-    func config(with dog: Breed) {
-        if let data = dog.photo as Data? {
-            breedImageView.image = UIImage(data: data)
-        } else {
-            breedImageView.image = UIImage()
+    var viewmodel: BreedTableViewCellViewModel! {
+        didSet {
+            breedLabel.text = viewmodel.breedNameString
+            if let data = viewmodel.breedImageData {
+                breedImageView.image = UIImage(data: data)
+            } else {
+                breedImageView.image = UIImage()
+            }
         }
-        breedLabel.text = dog.specificBreedName
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         breedImageView.layer.cornerRadius = breedImageView.bounds.height / 2
+    }
+    
+    func configImage(with data: Data) {
+        breedImageView.image = UIImage(data: data)
     }
 }

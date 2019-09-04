@@ -20,6 +20,18 @@
 		DF676C572318FC9A00789D93 /* Breed+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C542318FC9A00789D93 /* Breed+CoreDataClass.swift */; };
 		DF676C582318FC9A00789D93 /* Breed+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C522318FC9A00789D93 /* Breed+CoreDataProperties.swift */; };
 		DF676C5B23190BEA00789D93 /* DogProfileConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C5A23190BEA00789D93 /* DogProfileConstants.swift */; };
+		DF676C5D231CF18C00789D93 /* ExpandedPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C5C231CF18C00789D93 /* ExpandedPhotosViewController.swift */; };
+		DF676C6D231E80D200789D93 /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C6C231E80D200789D93 /* ResultsViewModel.swift */; };
+		DF676C6F231E858E00789D93 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C6E231E858E00789D93 /* QuestionViewModel.swift */; };
+		DF676C71231E8B2A00789D93 /* SubBreedTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C70231E8B2A00789D93 /* SubBreedTableViewCellViewModel.swift */; };
+		DF676C73231E932700789D93 /* BreedTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C72231E932700789D93 /* BreedTableViewCellViewModel.swift */; };
+		DF676C75231E939900789D93 /* DogsTableViewHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C74231E939900789D93 /* DogsTableViewHeaderViewModel.swift */; };
+		DF676C77231E97E900789D93 /* BreedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C76231E97E900789D93 /* BreedsViewModel.swift */; };
+		DF676C79231EAC8200789D93 /* BreedsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C78231EAC8200789D93 /* BreedsCoordinator.swift */; };
+		DF676C7B231EB3FA00789D93 /* BreedDetailsTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C7A231EB3FA00789D93 /* BreedDetailsTableViewCellViewModel.swift */; };
+		DF676C7D231EB47F00789D93 /* MaximizedDogPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C7C231EB47F00789D93 /* MaximizedDogPhotoViewModel.swift */; };
+		DF676C7F231EB4EA00789D93 /* BreedDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C7E231EB4EA00789D93 /* BreedDetailsViewModel.swift */; };
+		DF676C81231F97FF00789D93 /* ExpanededPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C80231F97FF00789D93 /* ExpanededPhotoViewModel.swift */; };
 		DFA8015222F57C2F00FDAEBF /* BreedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA8015122F57C2F00FDAEBF /* BreedsTableViewController.swift */; };
 		DFA8015422F57C6700FDAEBF /* DogProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA8015322F57C6700FDAEBF /* DogProfileViewController.swift */; };
 		DFA8015622F57C7300FDAEBF /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA8015522F57C7300FDAEBF /* QuizViewController.swift */; };
@@ -112,6 +124,18 @@
 		DF676C532318FC9A00789D93 /* BreedImage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "BreedImage+CoreDataProperties.swift"; path = "../../../BreedImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DF676C542318FC9A00789D93 /* Breed+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Breed+CoreDataClass.swift"; path = "../../../Breed+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DF676C5A23190BEA00789D93 /* DogProfileConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProfileConstants.swift; sourceTree = "<group>"; };
+		DF676C5C231CF18C00789D93 /* ExpandedPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedPhotosViewController.swift; sourceTree = "<group>"; };
+		DF676C6C231E80D200789D93 /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
+		DF676C6E231E858E00789D93 /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
+		DF676C70231E8B2A00789D93 /* SubBreedTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubBreedTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		DF676C72231E932700789D93 /* BreedTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		DF676C74231E939900789D93 /* DogsTableViewHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsTableViewHeaderViewModel.swift; sourceTree = "<group>"; };
+		DF676C76231E97E900789D93 /* BreedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewModel.swift; sourceTree = "<group>"; };
+		DF676C78231EAC8200789D93 /* BreedsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsCoordinator.swift; sourceTree = "<group>"; };
+		DF676C7A231EB3FA00789D93 /* BreedDetailsTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailsTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		DF676C7C231EB47F00789D93 /* MaximizedDogPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaximizedDogPhotoViewModel.swift; sourceTree = "<group>"; };
+		DF676C7E231EB4EA00789D93 /* BreedDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailsViewModel.swift; sourceTree = "<group>"; };
+		DF676C80231F97FF00789D93 /* ExpanededPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpanededPhotoViewModel.swift; sourceTree = "<group>"; };
 		DFA8015122F57C2F00FDAEBF /* BreedsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsTableViewController.swift; sourceTree = "<group>"; };
 		DFA8015322F57C6700FDAEBF /* DogProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProfileViewController.swift; sourceTree = "<group>"; };
 		DFA8015522F57C7300FDAEBF /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
@@ -249,8 +273,8 @@
 			isa = PBXGroup;
 			children = (
 				DFC05EBF22FC3DC400008CAD /* Dashboard */,
-				DFC05EB922FC373A00008CAD /* DogProfile */,
 				DFC05E9122FAF30E00008CAD /* BreedsList */,
+				DFC05EB922FC373A00008CAD /* DogProfile */,
 				DFA8015722F57F0C00FDAEBF /* Quiz */,
 				DFA8015322F57C6700FDAEBF /* DogProfileViewController.swift */,
 			);
@@ -262,7 +286,9 @@
 			children = (
 				DFA8015522F57C7300FDAEBF /* QuizViewController.swift */,
 				DFA8015822F57F4400FDAEBF /* QuestionViewController.swift */,
+				DF676C6E231E858E00789D93 /* QuestionViewModel.swift */,
 				DFC05E6122F6F42D00008CAD /* ResultsViewController.swift */,
+				DF676C6C231E80D200789D93 /* ResultsViewModel.swift */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -291,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				DFC05E4F22F5CFA700008CAD /* QuizCoordinator.swift */,
+				DF676C78231EAC8200789D93 /* BreedsCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -299,7 +326,11 @@
 			isa = PBXGroup;
 			children = (
 				DFA8015122F57C2F00FDAEBF /* BreedsTableViewController.swift */,
+				DF676C76231E97E900789D93 /* BreedsViewModel.swift */,
 				DFC05F39230AABE200008CAD /* BreedDetailsViewController.swift */,
+				DF676C7E231EB4EA00789D93 /* BreedDetailsViewModel.swift */,
+				DF676C5C231CF18C00789D93 /* ExpandedPhotosViewController.swift */,
+				DF676C80231F97FF00789D93 /* ExpanededPhotoViewModel.swift */,
 			);
 			path = BreedsList;
 			sourceTree = "<group>";
@@ -413,10 +444,13 @@
 			children = (
 				DFC05E8D22FAF0AA00008CAD /* SubBreedTableViewCell.swift */,
 				DFC05E8E22FAF0AA00008CAD /* SubBreedTableViewCell.xib */,
+				DF676C70231E8B2A00789D93 /* SubBreedTableViewCellViewModel.swift */,
 				DFC05E9C22FAFBA700008CAD /* BreedTableViewCell.swift */,
 				DFC05E9D22FAFBA700008CAD /* BreedTableViewCell.xib */,
+				DF676C72231E932700789D93 /* BreedTableViewCellViewModel.swift */,
 				DFC05EA422FB114300008CAD /* DogsTableViewHeader.swift */,
 				DFC05EA622FB115700008CAD /* DogsTableViewHeader.xib */,
+				DF676C74231E939900789D93 /* DogsTableViewHeaderViewModel.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -426,8 +460,10 @@
 			children = (
 				DFC05F4B230BCBE000008CAD /* BreedDetailsCollectionViewCell.swift */,
 				DFC05F4C230BCBE000008CAD /* BreedDetailsCollectionViewCell.xib */,
+				DF676C7A231EB3FA00789D93 /* BreedDetailsTableViewCellViewModel.swift */,
 				DFC05F96230ED9BB00008CAD /* MaximizedDogPhotoCollectionViewCell.swift */,
 				DFC05F97230ED9BB00008CAD /* MaximizedDogPhotoCollectionViewCell.xib */,
+				DF676C7C231EB47F00789D93 /* MaximizedDogPhotoViewModel.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -688,9 +724,12 @@
 				DFC05EAB22FC33E800008CAD /* DogPictureTableViewCell.swift in Sources */,
 				DFA8015F22F586D300FDAEBF /* QuestionClass.swift in Sources */,
 				DFC05F4D230BCBE000008CAD /* BreedDetailsCollectionViewCell.swift in Sources */,
+				DF676C6F231E858E00789D93 /* QuestionViewModel.swift in Sources */,
+				DF676C5D231CF18C00789D93 /* ExpandedPhotosViewController.swift in Sources */,
 				DFC05EA522FB114300008CAD /* DogsTableViewHeader.swift in Sources */,
 				DFC05F3A230AABE200008CAD /* BreedDetailsViewController.swift in Sources */,
 				F61DD2B222F3926700B31D4A /* DashboardViewController.swift in Sources */,
+				DF676C75231E939900789D93 /* DogsTableViewHeaderViewModel.swift in Sources */,
 				DF676B90231540AB00789D93 /* Doggoh.xcdatamodeld in Sources */,
 				DFC05E6622F73C4A00008CAD /* RoundedTabBar.swift in Sources */,
 				DFC05F52230C0D1700008CAD /* DoggohAPIClient.swift in Sources */,
@@ -703,9 +742,11 @@
 				DFC05E6022F6092E00008CAD /* DoggohNavigationBar.swift in Sources */,
 				DFA8015922F57F4400FDAEBF /* QuestionViewController.swift in Sources */,
 				DFA8015222F57C2F00FDAEBF /* BreedsTableViewController.swift in Sources */,
+				DF676C79231EAC8200789D93 /* BreedsCoordinator.swift in Sources */,
 				DFC05F3D230AC6D300008CAD /* NetworkManager.swift in Sources */,
 				DF676C5B23190BEA00789D93 /* DogProfileConstants.swift in Sources */,
 				DFC05EB322FC357400008CAD /* AgeTableViewCell.swift in Sources */,
+				DF676C7F231EB4EA00789D93 /* BreedDetailsViewModel.swift in Sources */,
 				DFC05EBC22FC375A00008CAD /* CharacterTableViewCell.swift in Sources */,
 				DFC05E4D22F5B58E00008CAD /* QuizButton.swift in Sources */,
 				DFC05E8822F9B18B00008CAD /* DogDescriptionButton.swift in Sources */,
@@ -713,6 +754,7 @@
 				DFC05EC622FC40A400008CAD /* PinterestLayout.swift in Sources */,
 				DFC05F41230AC75900008CAD /* AllDogsResponse.swift in Sources */,
 				DFC05EB022FC350600008CAD /* DogProfileTableViewController.swift in Sources */,
+				DF676C6D231E80D200789D93 /* ResultsViewModel.swift in Sources */,
 				DF676C582318FC9A00789D93 /* Breed+CoreDataProperties.swift in Sources */,
 				DFC05ECD22FC58F900008CAD /* CharacterCollectionViewCell.swift in Sources */,
 				DFC05EA122FB0F5700008CAD /* DogsTableViewFooter.swift in Sources */,
@@ -721,6 +763,7 @@
 				DFC05E6222F6F42D00008CAD /* ResultsViewController.swift in Sources */,
 				DFC05EC122FC3DF500008CAD /* DogClass.swift in Sources */,
 				DFC05ED122FC5CC500008CAD /* DogProfileCharacterLayout.swift in Sources */,
+				DF676C77231E97E900789D93 /* BreedsViewModel.swift in Sources */,
 				DF676C4B23180C7B00789D93 /* Question+CoreDataClass.swift in Sources */,
 				DFC05F5A230C183800008CAD /* TagsResponse.swift in Sources */,
 				F61DD2B022F3926700B31D4A /* AppDelegate.swift in Sources */,
@@ -728,11 +771,16 @@
 				DF676C4823180C7B00789D93 /* Dog+CoreDataProperties.swift in Sources */,
 				DF676C552318FC9A00789D93 /* BreedImage+CoreDataClass.swift in Sources */,
 				DFC05E8F22FAF0AA00008CAD /* SubBreedTableViewCell.swift in Sources */,
+				DF676C81231F97FF00789D93 /* ExpanededPhotoViewModel.swift in Sources */,
 				DFC05F54230C174E00008CAD /* ImaggaAPIClient.swift in Sources */,
 				DFC05E9922FAF75B00008CAD /* BreedsRepository.swift in Sources */,
+				DF676C7B231EB3FA00789D93 /* BreedDetailsTableViewCellViewModel.swift in Sources */,
+				DF676C71231E8B2A00789D93 /* SubBreedTableViewCellViewModel.swift in Sources */,
+				DF676C7D231EB47F00789D93 /* MaximizedDogPhotoViewModel.swift in Sources */,
 				DFC05F50230BD49400008CAD /* MultipleDogImagesResponse.swift in Sources */,
 				DFC05E8A22FAEF5400008CAD /* BreedClass.swift in Sources */,
 				DF43FC6A22F59C2300E7004A /* QuestionsPool.swift in Sources */,
+				DF676C73231E932700789D93 /* BreedTableViewCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

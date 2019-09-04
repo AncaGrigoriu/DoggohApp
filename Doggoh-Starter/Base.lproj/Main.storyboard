@@ -306,6 +306,49 @@ Female : 17-18 in, 40-55 lbs</string>
             </objects>
             <point key="canvasLocation" x="3614" y="79"/>
         </scene>
+        <!--Expanded Photos View Controller-->
+        <scene sceneID="MFe-tN-Uu2">
+            <objects>
+                <viewController storyboardIdentifier="ExpandedPhotosViewController" id="H3X-hD-7fK" customClass="ExpandedPhotosViewController" customModule="Doggoh_Starter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4qy-kg-R5u">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WIx-uo-ImX">
+                                <rect key="frame" x="10" y="44" width="365" height="599"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="msU-Im-UYb">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="vFo-Pr-0c9">
+                                <rect key="frame" x="160" y="582" width="55" height="37"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QDn-eY-usB" firstAttribute="bottom" secondItem="WIx-uo-ImX" secondAttribute="bottom" constant="24" id="Lt7-6W-c7p"/>
+                            <constraint firstItem="WIx-uo-ImX" firstAttribute="leading" secondItem="QDn-eY-usB" secondAttribute="leading" constant="10" id="Oik-nf-m6q"/>
+                            <constraint firstItem="vFo-Pr-0c9" firstAttribute="centerX" secondItem="4qy-kg-R5u" secondAttribute="centerX" id="QaR-zi-oU5"/>
+                            <constraint firstItem="WIx-uo-ImX" firstAttribute="top" secondItem="QDn-eY-usB" secondAttribute="top" constant="24" id="XPT-fI-ybN"/>
+                            <constraint firstItem="QDn-eY-usB" firstAttribute="trailing" secondItem="WIx-uo-ImX" secondAttribute="trailing" id="w7B-wE-uoj"/>
+                            <constraint firstItem="WIx-uo-ImX" firstAttribute="bottom" secondItem="vFo-Pr-0c9" secondAttribute="bottom" constant="24" id="zhF-ov-GlW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QDn-eY-usB"/>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="vFo-Pr-0c9" id="Ket-ZB-Ma7"/>
+                        <outlet property="photosCollectionView" destination="WIx-uo-ImX" id="6Ys-zb-ieQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tue-zp-AOR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4765" y="42"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="XaW-pW-BP2">
             <objects>
@@ -545,22 +588,22 @@ Female : 17-18 in, 40-55 lbs</string>
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR RESULT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QD-ge-zA1">
-                                <rect key="frame" x="30" y="130" width="87.5" height="18"/>
+                                <rect key="frame" x="30" y="143" width="88.5" height="15.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="13"/>
                                 <color key="textColor" name="optionButtonBorder"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" translatesAutoresizingMaskIntoConstraints="NO" id="koP-NH-bOd">
-                                <rect key="frame" x="28" y="128" width="341.5" height="189"/>
+                                <rect key="frame" x="28" y="138.5" width="288.5" height="181"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGc-Fb-FeP">
-                                        <rect key="frame" x="0.0" y="0.0" width="204.5" height="189"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="172.5" height="181"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="155"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1m0-zJ-jOL">
-                                        <rect key="frame" x="204.5" y="72.5" width="137" height="98"/>
+                                        <rect key="frame" x="172.5" y="71.5" width="116" height="93.5"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="80"/>
                                         <color key="textColor" name="optionButtonBorder"/>
                                         <nil key="highlightedColor"/>
@@ -568,13 +611,13 @@ Female : 17-18 in, 40-55 lbs</string>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfS-b4-Ga0">
-                                <rect key="frame" x="30" y="317" width="170.5" height="33"/>
+                                <rect key="frame" x="30" y="319.5" width="170.5" height="28"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Want to try again?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lq3-RK-7lb">
-                                <rect key="frame" x="30" y="504" width="193" height="33"/>
+                                <rect key="frame" x="30" y="509" width="196" height="28"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

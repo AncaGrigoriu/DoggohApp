@@ -8,11 +8,36 @@
 
 import UIKit
 
-class MaximizedDogPhotoCollectionViewCell: UICollectionViewCell {
+protocol MaximizedDogPhotoCollectionViewCellDelegate: class {
+    func minimize()
+}
 
+class MaximizedDogPhotoCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var minimizeImageView: UIImageView!
+    @IBOutlet weak var breedImageView: UIImageView!
+    
+    weak var delegate: MaximizedDogPhotoCollectionViewCellDelegate?
+    
+    var viewmodel: MaximizedDogPhotoViewModel! {
+        didSet {
+            breedImageView.image = UIImage(data: viewmodel.imageData)
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        configure()
     }
 
+    private func configure() {
+        breedImageView.layer.cornerRadius = 22
+        minimizeImageView.isUserInteractionEnabled = true
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(minimize))
+        minimizeImageView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func minimize() {
+        delegate?.minimize()
+    }
 }

@@ -17,19 +17,27 @@ struct Constants {
 }
 
 protocol CellConfigurable {
-    func config(with dog: Breed)
+    func configImage(with data: Data)
 }
 
 class BreedsTableViewController: UITableViewController {
     
-    weak var fetchRC: NSFetchedResultsController<Breed>?
-    
-    var imagesDispatch = DispatchQueue(label: "images", qos: .userInitiated, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
-    
     var activityIndicator: UIActivityIndicatorView!
+    
+    var coordinator: BreedsCoordinator!
+    
+    var viewmodel: BreedsViewModel? {
+        didSet {
+            viewmodel!.dataLoaded = reloadData
+            viewmodel!.imageLoaded = refreshCell
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        coordinator = BreedsCoordinator(forViewController: self)
+        coordinator.flowDelegate = self
         
         registerCell(Constants.multipleSubBreedsCellIdentifier)
         registerCell(Constants.singleSubBreedCellIdentifier)
@@ -43,17 +51,33 @@ class BreedsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        addActivityIndicator()
-        getDogsData()
+        if (viewmodel?.numberOfBreeds() ?? 0) == 0 {
+            addActivityIndicator()
+        }
     }
     
     private func addActivityIndicator() {
         activityIndicator = UIActivityIndicatorView(style: .gray)
         let frame = view.frame
         activityIndicator.center = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
+        activityIndicator.hidesWhenStopped = true
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
+    }
+    
+    private func reloadData() {
+        self.activityIndicator.stopAnimating()
+        self.tableView.reloadData()
+    }
+    
+    private func refreshCell(_ indexPath: IndexPath) {
+        let visibleIndexPaths = self.tableView.visibleCells.map { currentCell in
+            return self.tableView.indexPath(for: currentCell)
+        }
+        if visibleIndexPaths.contains(indexPath) {
+            let cell = self.tableView.cellForRow(at: indexPath) as! CellConfigurable
+            self.viewmodel!.update(cell: cell, atIndexPath: indexPath)
+        }
     }
     
     func registerCell(_ reuseId: String) {
@@ -68,100 +92,31 @@ class BreedsTableViewController: UITableViewController {
 }
 
 extension BreedsTableViewController {
-    func getDogsData() {
-        BreedsRepository.getBreedList { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .failure(let error):
-                    print(error)
-                case .success(let breeds):
-                    self.fetchRC = breeds
-                    self.activityIndicator.stopAnimating()
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
-    
-    func getBreedImage(forIndexPath indexPath: IndexPath, cell: CellConfigurable) {
-        let breed = fetchRC!.object(at: indexPath)
-        let generalBreed = breed.generalBreedName
-        DogImagesRepository.getRandomImage(forBreed: generalBreed.lowercased()) { result in
-            switch result {
-            case .success(let imageUrl):
-                DispatchQueue.global().async {
-                    do {
-                        let data = try Data(contentsOf: URL(string: imageUrl)!)
-                        DispatchQueue.main.async {
-                            breed.photo = data as NSData
-                            BreedsRepository.updateBreed(at: indexPath, with: breed)
-                            
-                            let visibleIndexPaths = self.tableView.visibleCells.map { currentCell in
-                                return self.tableView.indexPath(for: currentCell)
-                            }
-                            if visibleIndexPaths.contains(indexPath) {
-                                cell.config(with: breed)
-                            }
-                        }
-                    }
-                    catch let error {
-                        print("error: \(error)")
-                    }
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    func indexPathImage(for indexPath: IndexPath, cell: CellConfigurable) {
-        guard let breed = fetchRC?.object(at: indexPath), breed.photo != nil else {
-            getBreedImage(forIndexPath: indexPath, cell: cell)
-            return
-        }
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let sections = fetchRC?.sections,
-            let subbreeds = sections[section].objects else { return 0 }
-        return subbreeds.count
+        return viewmodel?.numberOfSubBreeds(forSection: section) ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let dog = fetchRC!.object(at: indexPath)
-       
-        if dog.generalBreedName == dog.specificBreedName {
+        if viewmodel!.isSingleBreed(atIndexPath: indexPath) {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.singleSubBreedCellIdentifier, for: indexPath) as! BreedTableViewCell
-            cell.config(with: dog)
-            
-            indexPathImage(for: indexPath, cell: cell as CellConfigurable)
-            
+            cell.viewmodel = viewmodel!.breedViewModel(atIndexPath: indexPath)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.multipleSubBreedsCellIdentifier, for: indexPath) as! SubBreedTableViewCell
-            cell.config(with: dog)
-            
-            indexPathImage(for: indexPath, cell: cell as CellConfigurable)
-            
+            cell.viewmodel = viewmodel!.subBreedViewModel(atIndexPath: indexPath)
             return cell
         }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-         return fetchRC?.sections?.count ?? 0
+        return viewmodel?.numberOfBreeds() ?? 0
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: Constants.headerIdentifier) as! DogsTableViewHeader
         
-        guard let sections = fetchRC?.sections,
-            let subbreeds = sections[section].objects as? [Breed] else { return sectionHeader }
-        
-        let breed = subbreeds[0].generalBreedName
-        
-        if subbreeds.count > 1 || subbreeds[0].specificBreedName != breed {
-            sectionHeader.headerTextLabel.text = breed
-        }
+        sectionHeader.viewmodel = viewmodel!.headerViewModel(forSection: section)
         
         return sectionHeader
     }
@@ -171,12 +126,7 @@ extension BreedsTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard let sections = fetchRC?.sections,
-            let subbreeds = sections[section].objects as? [Breed] else { return 0 }
-        
-        let breed = subbreeds[0].generalBreedName
-        
-        if subbreeds.count > 1 || subbreeds[0].specificBreedName != breed {
+        if viewmodel!.shouldHeaderBeVisible(forSection: section) {
             let sectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: Constants.headerIdentifier) as! DogsTableViewHeader
             return sectionHeader.frame.height
         }
@@ -185,8 +135,7 @@ extension BreedsTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if let sections = fetchRC?.sections,
-            section == sections.count - 1 {
+        if viewmodel!.isLastSection(currentSection: section) {
             return 0
         }
         
@@ -195,8 +144,6 @@ extension BreedsTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let breed = fetchRC!.object(at: indexPath)
-        
 //        if let photo = breed.photo {
 //            DogImagesRepository.checkBreedMatch(with: photo as Data) { response in
 //                switch response {
@@ -212,12 +159,13 @@ extension BreedsTableViewController {
 //                }
 //            }
 //        }
-        
-        let breedDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "BreedDetailsViewController") as! BreedDetailsViewController
-        
-        breedDetailsViewController.breed = breed
-        breedDetailsViewController.breedIndexPath = indexPath
-        self.navigationController!.pushViewController(breedDetailsViewController, animated: true)
+        coordinator.onRowSelected(atIndexPath: indexPath)
+    }
+}
+
+extension BreedsTableViewController: BreedsFlowDelegate {
+    func showBreedDetails(withViewController viewController: BreedDetailsViewController) {
+        self.navigationController!.pushViewController(viewController, animated: true)
     }
 }
 

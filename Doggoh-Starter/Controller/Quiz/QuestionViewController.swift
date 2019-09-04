@@ -13,10 +13,6 @@ protocol QuestionDelegate: class {
 }
 
 class QuestionViewController: UIViewController {
-
-    var question: Question!
-    var index: Int!
-    var total: Int!
     
     var clickedButton: QuizButton?
     weak var delegate: QuestionDelegate?
@@ -30,6 +26,8 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var optionCButton: QuizButton!
     @IBOutlet weak var optionDButton: QuizButton!
     
+    var viewmodel: QuestionViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -37,13 +35,13 @@ class QuestionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        setupLabels()
         setUpButtons()
-        update(withQuestion: question, atIndex: index, inTotal: total)
     }
     
-    private func update(withQuestion question: Question, atIndex index: Int, inTotal total: Int) {
-        questionLabel.text = question.question
-        counterLabel.text = "\(index + 1)/\(total)"
+    private func setupLabels() {
+        questionLabel.text = viewmodel.questionString
+        counterLabel.text = viewmodel.counterString
     }
     
     func setUpButtons() {
@@ -52,21 +50,15 @@ class QuestionViewController: UIViewController {
     }
     
     func initOptionsButtons() {
-        optionAButton.configure(withType: .multipleOptions, withTitle: question.options[0])
-        optionBButton.configure(withType: .multipleOptions, withTitle: question.options[1])
-        optionCButton.configure(withType: .multipleOptions, withTitle: question.options[2])
-        optionDButton.configure(withType: .multipleOptions, withTitle: question.options[3])
+        optionAButton.configure(withType: .multipleOptions, withTitle: viewmodel.optionA)
+        optionBButton.configure(withType: .multipleOptions, withTitle: viewmodel.optionB)
+        optionCButton.configure(withType: .multipleOptions, withTitle: viewmodel.optionC)
+        optionDButton.configure(withType: .multipleOptions, withTitle: viewmodel.optionD)
     }
     
     func initSubmitButton() {
+        submitButton.configure(withType: .action, withTitle: viewmodel.submitButtonString)
         submitButton.isEnabled = false
-        
-        if index == total - 1 {
-            submitButton.configure(withType: .action, withTitle: "FINISH")
-        } else {
-            submitButton.configure(withType: .action, withTitle: "NEXT")
-        }
-        
         submitButton.update(forState: .disabled)
     }
     
@@ -86,7 +78,7 @@ class QuestionViewController: UIViewController {
             break
         }
         
-        return selectedAnswer == question.answer
+        return viewmodel.isCorrectAnswer(selectedAnswer)
     }
     
     @IBAction func optionButtonClicked(_ sender: QuizButton) {

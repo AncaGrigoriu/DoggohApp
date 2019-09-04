@@ -11,49 +11,43 @@ import CoreData
 
 class BreedDetailsViewController: UIViewController {
     
-    var breed: Breed!
-    var breedIndexPath: IndexPath!
-    var isInitialCellLoading = true
-    
-    let photosCount = 4
-    let collectionViewCellIdentifier = "BreedDetailsCollectionViewCell"
-    
     @IBOutlet weak var breedPhotosCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var lateralGradientView: UIView!
     
-    var fetchRC: NSFetchedResultsController<BreedImage>?
-    var images: [BreedImage]?
+    let collectionViewCellIdentifier = "BreedDetailsCollectionViewCell"
+
+    var isInitialCellLoading = true
+    var viewmodel: BreedDetailsViewModel!
+    var coordinator: BreedsCoordinator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pageControl.numberOfPages = photosCount
+        coordinator.detailsFlowDelegate = self
+        
+        pageControl.numberOfPages = viewmodel.photosCount
         pageControl.currentPage = 0
         
-        getRandomImages()
+        viewmodel.onImagesLoaded = reloadImagesData
+        
         configureNavigationBar()
         configureGradientViews()
         
         breedPhotosCollectionView.dataSource = self
         breedPhotosCollectionView.delegate = self
-        
         breedPhotosCollectionView.showsHorizontalScrollIndicator = false
+        breedPhotosCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 110)
         
         registerCell(collectionViewCellIdentifier)
-        
-        breedPhotosCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 110)
     }
     
     func configureNavigationBar() {
-        let isSingularBreed = (breed.specificBreedName.lowercased() == breed.generalBreedName.lowercased())
-        let subBreedNameValue = !isSingularBreed ? "\(breed.specificBreedName.uppercased()) " : ""
-        let breedName = breed.generalBreedName.uppercased()
-        self.title = "\(subBreedNameValue)\(breedName)"
+        self.title = viewmodel.navigationBarTitleString
         
         let backImage = UIImage(named: "backButton")
-        let barButton = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(goBack))
+        let barButton = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(goBackToList))
         barButton.tintColor = UIColor(named: "backButtonColor")
         
         navigationItem.leftBarButtonItem = barButton
@@ -73,7 +67,7 @@ class BreedDetailsViewController: UIViewController {
         lateralGradientView.layer.insertSublayer(lateralGradient, at: 0)
     }
     
-    @objc func goBack() {
+    @objc func goBackToList() {
         navigationController?.popViewController(animated: true)
     }
     
@@ -82,38 +76,24 @@ class BreedDetailsViewController: UIViewController {
         breedPhotosCollectionView.register(nib, forCellWithReuseIdentifier: id)
     }
     
-    func getRandomImages() {
-        if let dogImages = breed.breedPhotos,
-            dogImages.count > 0 {
-            images = dogImages.allObjects as? [BreedImage]
-        } else {
-            DogImagesRepository.getImages(for: breed, withCount: photosCount) { result in
-                DispatchQueue.main.async {
-                    switch result {
-                    case .failure(let error):
-                        print("error: \(error)")
-                    case .success(_):
-                        if let dogImages = self.breed.breedPhotos {
-                            self.images = dogImages.allObjects as? [BreedImage]
-                        }
-                        self.isInitialCellLoading = true
-                        self.breedPhotosCollectionView.reloadData()
-                    }
-                }
-            }
-        }
+    func reloadImagesData() {
+        isInitialCellLoading = true
+        breedPhotosCollectionView.reloadData()
     }
 }
 
 extension BreedDetailsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images?.count ?? 0
+        let numberOfImages = viewmodel.numberOfImages()
+        pageControl.numberOfPages = numberOfImages
+        return numberOfImages
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionViewCellIdentifier, for: indexPath) as! BreedDetailsCollectionViewCell
-        let data = images![indexPath.row].image
-        cell.breedImageView.image = UIImage(data: data as Data)
+        cell.delegate = self
+        cell.viewmodel = viewmodel.cellViewModel(atIndexPath: indexPath)
+        
         if isInitialCellLoading && indexPath.row == 1 {
             applyTransformation(for: cell as UICollectionViewCell, with: 0.9)
             isInitialCellLoading = false
@@ -177,5 +157,22 @@ extension BreedDetailsViewController: UICollectionViewDelegateFlowLayout {
         if let visibleIndexPath = breedPhotosCollectionView.indexPathForItem(at: visiblePoint) {
             pageControl.currentPage = visibleIndexPath.row
         }
+    }
+}
+
+extension BreedDetailsViewController: BreedDetailsCollectionViewCellDelegate {
+    func expand() {
+        coordinator.onImageSelected(atIndex: pageControl.currentPage)
+    }
+}
+
+extension BreedDetailsViewController: BreedDetailsFlowDelegate {
+    func showMaximizedPictures(withViewController viewController: ExpandedPhotosViewController) {
+        self.navigationController!.present(viewController, animated: true, completion: nil)
+    }
+    
+    func goBack(_ imageIndex: Int) {
+        let indexPath = IndexPath(row: imageIndex, section: 0)
+        breedPhotosCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
     }
 }
