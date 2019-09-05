@@ -2,30 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Breed+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Breed+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:BreedImage+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:BreedImage+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Dog+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Dog+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Question+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Question+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:Doggoh-Starter.xcodeproj">
    </FileRef>
    <FileRef
