@@ -18,7 +18,7 @@ struct ExpanededPhotoViewModel {
     }
     
     func numberOfPhotos() -> Int {
-        return breed.breedPhotos?.count ?? 0
+        return breed.breedPhotos!.count
     }
     
     func cellViewModel(atIndexPath indexPath: IndexPath) -> MaximizedDogPhotoViewModel {

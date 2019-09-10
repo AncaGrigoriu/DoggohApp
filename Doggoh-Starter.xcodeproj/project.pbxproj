@@ -34,6 +34,12 @@
 		DF676C81231F97FF00789D93 /* ExpanededPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C80231F97FF00789D93 /* ExpanededPhotoViewModel.swift */; };
 		DF676C832321152900789D93 /* alldogsresponse.json in Resources */ = {isa = PBXBuildFile; fileRef = DF676C822321152900789D93 /* alldogsresponse.json */; };
 		DF676C852321153200789D93 /* Dogs.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF676C842321153200789D93 /* Dogs.plist */; };
+		DF676C8F23223F8000789D93 /* Doggoh_StarterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C8E23223F8000789D93 /* Doggoh_StarterTests.swift */; };
+		DF676C972322403D00789D93 /* QuestionViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C962322403D00789D93 /* QuestionViewModelTest.swift */; };
+		DF676C9923224D7200789D93 /* BreedDetailsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C9823224D7200789D93 /* BreedDetailsViewModelTest.swift */; };
+		DF676C9B2324D66900789D93 /* BreedsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C9A2324D66900789D93 /* BreedsViewModelTest.swift */; };
+		DF676C9D2324E25400789D93 /* ExpandedPhotoViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C9C2324E25400789D93 /* ExpandedPhotoViewModelTest.swift */; };
+		DF676C9F2324E5D600789D93 /* ResultsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF676C9E2324E5D600789D93 /* ResultsViewModelTest.swift */; };
 		DFA8015222F57C2F00FDAEBF /* BreedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA8015122F57C2F00FDAEBF /* BreedsTableViewController.swift */; };
 		DFA8015422F57C6700FDAEBF /* DogProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA8015322F57C6700FDAEBF /* DogProfileViewController.swift */; };
 		DFA8015622F57C7300FDAEBF /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA8015522F57C7300FDAEBF /* QuizViewController.swift */; };
@@ -109,6 +115,16 @@
 		F61DD2C222F392B600B31D4A /* dog_questions_multiple.json in Resources */ = {isa = PBXBuildFile; fileRef = F61DD2C122F392B600B31D4A /* dog_questions_multiple.json */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DF676C9123223F8000789D93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F61DD2A422F3926700B31D4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F61DD2AB22F3926700B31D4A;
+			remoteInfo = "Doggoh-Starter";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		10B99F94DEB38DD3F8E386C8 /* Pods_Doggoh_Starter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Doggoh_Starter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B8FBF9722EBD958F657317 /* Pods-Doggoh-Starter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doggoh-Starter.debug.xcconfig"; path = "Target Support Files/Pods-Doggoh-Starter/Pods-Doggoh-Starter.debug.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +154,14 @@
 		DF676C80231F97FF00789D93 /* ExpanededPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpanededPhotoViewModel.swift; sourceTree = "<group>"; };
 		DF676C822321152900789D93 /* alldogsresponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = alldogsresponse.json; sourceTree = "<group>"; };
 		DF676C842321153200789D93 /* Dogs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Dogs.plist; sourceTree = "<group>"; };
+		DF676C8C23223F8000789D93 /* Doggoh-StarterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Doggoh-StarterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF676C8E23223F8000789D93 /* Doggoh_StarterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doggoh_StarterTests.swift; sourceTree = "<group>"; };
+		DF676C9023223F8000789D93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF676C962322403D00789D93 /* QuestionViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModelTest.swift; sourceTree = "<group>"; };
+		DF676C9823224D7200789D93 /* BreedDetailsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailsViewModelTest.swift; sourceTree = "<group>"; };
+		DF676C9A2324D66900789D93 /* BreedsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewModelTest.swift; sourceTree = "<group>"; };
+		DF676C9C2324E25400789D93 /* ExpandedPhotoViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedPhotoViewModelTest.swift; sourceTree = "<group>"; };
+		DF676C9E2324E5D600789D93 /* ResultsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModelTest.swift; sourceTree = "<group>"; };
 		DFA8015122F57C2F00FDAEBF /* BreedsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsTableViewController.swift; sourceTree = "<group>"; };
 		DFA8015322F57C6700FDAEBF /* DogProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogProfileViewController.swift; sourceTree = "<group>"; };
 		DFA8015522F57C7300FDAEBF /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +241,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DF676C8923223F8000789D93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F61DD2A922F3926700B31D4A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,6 +305,20 @@
 				DF676C74231E939900789D93 /* DogsTableViewHeaderViewModel.swift */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		DF676C8D23223F8000789D93 /* Doggoh-StarterTests */ = {
+			isa = PBXGroup;
+			children = (
+				DF676C8E23223F8000789D93 /* Doggoh_StarterTests.swift */,
+				DF676C9023223F8000789D93 /* Info.plist */,
+				DF676C962322403D00789D93 /* QuestionViewModelTest.swift */,
+				DF676C9823224D7200789D93 /* BreedDetailsViewModelTest.swift */,
+				DF676C9A2324D66900789D93 /* BreedsViewModelTest.swift */,
+				DF676C9C2324E25400789D93 /* ExpandedPhotoViewModelTest.swift */,
+				DF676C9E2324E5D600789D93 /* ResultsViewModelTest.swift */,
+			);
+			path = "Doggoh-StarterTests";
 			sourceTree = "<group>";
 		};
 		DFA8014F22F56C8000FDAEBF /* View */ = {
@@ -520,6 +565,7 @@
 			children = (
 				DF676B8E231540AB00789D93 /* Doggoh.xcdatamodeld */,
 				F61DD2AE22F3926700B31D4A /* Doggoh-Starter */,
+				DF676C8D23223F8000789D93 /* Doggoh-StarterTests */,
 				F61DD2AD22F3926700B31D4A /* Products */,
 				964B8197FC5E26F4BD932133 /* Pods */,
 				2A9F9CCAD6137AAC2435D506 /* Frameworks */,
@@ -530,6 +576,7 @@
 			isa = PBXGroup;
 			children = (
 				F61DD2AC22F3926700B31D4A /* Doggoh-Starter.app */,
+				DF676C8C23223F8000789D93 /* Doggoh-StarterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -589,6 +636,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DF676C8B23223F8000789D93 /* Doggoh-StarterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF676C9323223F8000789D93 /* Build configuration list for PBXNativeTarget "Doggoh-StarterTests" */;
+			buildPhases = (
+				DF676C8823223F8000789D93 /* Sources */,
+				DF676C8923223F8000789D93 /* Frameworks */,
+				DF676C8A23223F8000789D93 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DF676C9223223F8000789D93 /* PBXTargetDependency */,
+			);
+			name = "Doggoh-StarterTests";
+			productName = "Doggoh-StarterTests";
+			productReference = DF676C8C23223F8000789D93 /* Doggoh-StarterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F61DD2AB22F3926700B31D4A /* Doggoh-Starter */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F61DD2BE22F3926900B31D4A /* Build configuration list for PBXNativeTarget "Doggoh-Starter" */;
@@ -614,10 +679,14 @@
 		F61DD2A422F3926700B31D4A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Endava Internship 2019";
 				TargetAttributes = {
+					DF676C8B23223F8000789D93 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = F61DD2AB22F3926700B31D4A;
+					};
 					F61DD2AB22F3926700B31D4A = {
 						CreatedOnToolsVersion = 10.2;
 					};
@@ -637,11 +706,19 @@
 			projectRoot = "";
 			targets = (
 				F61DD2AB22F3926700B31D4A /* Doggoh-Starter */,
+				DF676C8B23223F8000789D93 /* Doggoh-StarterTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DF676C8A23223F8000789D93 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F61DD2AA22F3926700B31D4A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -726,6 +803,19 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DF676C8823223F8000789D93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF676C972322403D00789D93 /* QuestionViewModelTest.swift in Sources */,
+				DF676C9F2324E5D600789D93 /* ResultsViewModelTest.swift in Sources */,
+				DF676C9B2324D66900789D93 /* BreedsViewModelTest.swift in Sources */,
+				DF676C9D2324E25400789D93 /* ExpandedPhotoViewModelTest.swift in Sources */,
+				DF676C9923224D7200789D93 /* BreedDetailsViewModelTest.swift in Sources */,
+				DF676C8F23223F8000789D93 /* Doggoh_StarterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F61DD2A822F3926700B31D4A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -802,6 +892,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DF676C9223223F8000789D93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F61DD2AB22F3926700B31D4A /* Doggoh-Starter */;
+			targetProxy = DF676C9123223F8000789D93 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		F61DD2B322F3926700B31D4A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -822,6 +920,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DF676C9423223F8000789D93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Doggoh-StarterTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.companyName.Doggoh-StarterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Doggoh-Starter.app/Doggoh-Starter";
+			};
+			name = Debug;
+		};
+		DF676C9523223F8000789D93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Doggoh-StarterTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.companyName.Doggoh-StarterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Doggoh-Starter.app/Doggoh-Starter";
+			};
+			name = Release;
+		};
 		F61DD2BC22F3926900B31D4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -977,6 +1115,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DF676C9323223F8000789D93 /* Build configuration list for PBXNativeTarget "Doggoh-StarterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF676C9423223F8000789D93 /* Debug */,
+				DF676C9523223F8000789D93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F61DD2A722F3926700B31D4A /* Build configuration list for PBXProject "Doggoh-Starter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

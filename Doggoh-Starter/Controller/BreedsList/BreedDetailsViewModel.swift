@@ -56,4 +56,15 @@ struct BreedDetailsViewModel {
             }
         }
     }
+    
+    func methodThatTakesSomeTime() {
+        for i in 0...Int8.max {
+            for j in 0...Int8.max {
+                for k in 0...Int8.max {
+                    _ = i-j
+                    _ = i-k
+                }
+            }
+        }
+    }
 }
